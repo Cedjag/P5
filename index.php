@@ -1,5 +1,5 @@
 <?php
 session_start();
-require 'controller/Router.php';
+require 'Controllers/Router.php';
 $router = new Router();
 $router->RouterRequest();
