@@ -19,4 +19,13 @@ class Movies extends Connection{
       return $result;
     }
   }
-}
+
+  //Fonction qui retourne les derniers films mis en ligne
+
+  public function lastMovies() {
+    $sql = "SELECT * FROM movies ORDER BY id DESC LIMIT 0, 10";
+    $req = $this->query($sql);
+      return $req;
+    }
+  }
+

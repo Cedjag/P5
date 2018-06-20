@@ -12,7 +12,7 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top headroom" role="navigation">
         <div class="container">
 
             <div class="navbar-header">
@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                      <a href="index.php"><span class="glyphicon glyphicon-home"></span> Accueil</a>
+                      <a href="index.php"><span class="glyphicon glyphicon-home"></span> Le coin du cinéphile</a>
                     </li>
                 </ul>
             </div>
@@ -53,6 +53,8 @@
 </div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-      <script src="public/js/app.js"></script>
+      <script type="text/javascript" src="public/js/slider.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   </body>
   </html>

@@ -12,6 +12,7 @@ class Controller {
   }
 
   public function home() {
+    $films = $this->Movie->lastMovies();
     $view = require 'views/home.php';
   }
 
