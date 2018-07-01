@@ -5,44 +5,40 @@ Autoload::register();
 class Controller {
 
   public $Movie;
+  public $Cast;
+  public $MovieCast;
   private $Comment;
   private $Log_in;
   private $About_;
 
   public function __construct() {
+    $token  = new \Tmdb\ApiToken(TMDB_API_KEY);
+    $client = new \Tmdb\Client($token, ['secure' => false]);
+    $plugin = new \Tmdb\HttpClient\Plugin\LanguageFilterPlugin('fr');
+    $client->getHttpClient()->addSubscriber($plugin);
 
     $this->Movie = new Movies();
-    $this->Comment = new Critics();
+    $this->Cast = new Casts();
+    $this->MovieCast = new MoviesCasts();
     $this->Log_in = new Login();
-    $this->About_ = new About();
   }
 
   public function home() {
-    $films = $this->Movie->lastMovies();
-    $horror = $this->Movie->horrorMovies();
-    $drama = $this->Movie->dramas();
-    $romcom = $this->Movie->romance();
-    $dramatic = $this->Movie->dramaticcom();
-    $mystery = $this->Movie->film_noir();
-    $indiana = $this->Movie->adventure();
-    $cop = $this->Movie->polar();
-    $thrill = $this->Movie->thriller();
-    $comedies = $this->Movie->comedy();
-    $documentary = $this->Movie->docu();
-    $strange = $this->Movie->fantastic();
-    $sf = $this->Movie->scifi();
-    $farwest = $this->Movie->western();
-    $hist = $this->Movie->historic();
-
+    $movie = $this->Movie;
     $view = require 'views/home.php';
   }
 
   public function single() {
-    $req = $this->Movie->getSingle($_GET['id']); 
-    $msg = $this->Comment->reportCritic();
-    $this->Comment->insertCritic();
-    $critics = $this->Comment->findAllWithChildren($_GET['id']);
-    $view = require 'views/single.php';
+    if (isset($_GET['id'])) {
+      $id = $_GET['id'];
+      $movie = $this->Movie->getMovie($id);
+      $poster = $this->Movie->getPosterPath($movie['poster_path'], false, 300, 450);
+      $cast = $this->Cast;
+      $rating = $this->Rating->avg($movie['id']);
+      $view = require 'views/single.php';
+    } else {
+      header('Location:index.php?p=404');
+    }
   }
 
   public function login(){

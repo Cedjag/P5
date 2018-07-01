@@ -4,19 +4,20 @@ require_once 'Connection.php';
 class Movies extends Connection{
 
 
-  public function getMovie()
-   {
-      $sql = 'SELECT * FROM movies ORDER BY title';
-      $req = $this->query($sql,true);
-        return $req;
+ //Fonction qui retourne les films
+
+  public function getMovies($offset = null) {
+    $sql = 'SELECT * FROM `movies` ORDER BY `id` DESC';
+    if ($offset) $sql .= ' LIMIT '.$offset;
+    return $this->query($sql, null, 'all');
   }
 
   //Fonction qui retourne un film.
 
-  public function getSingle($idMovie) {
+  public function getSingle($id) {
 
     $sql = "SELECT * FROM movies WHERE id=?";
-    $params = [$idMovie];
+    $params = [$id];
     $result = $this->prepare($sql, $params,'one');
 
     if ($result == false) {
@@ -34,93 +35,6 @@ class Movies extends Connection{
     $req = $this->query($sql);
       return $req;
     }
-
-  //Fonction qui retourne les films d'horreur
-  public function horrorMovies() {
-    $sql = "SELECT * FROM movies WHERE genre='horreur'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-    //Fonction qui retourne les drames
-  public function dramas() {
-    $sql = "SELECT * FROM movies WHERE genre='drame'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-      //Fonction qui retourne les comédies romantiques
-  public function romance() {
-    $sql = "SELECT * FROM movies WHERE genre='Comédie romantique'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function dramaticcom() {
-    $sql = "SELECT * FROM movies WHERE genre='Comédie dramatique'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function comedy() {
-    $sql = "SELECT * FROM movies WHERE genre='Comédie'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function thriller() {
-    $sql = "SELECT * FROM movies WHERE genre='thriller'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function fantastic() {
-    $sql = "SELECT * FROM movies WHERE genre='fantastique'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-    public function scifi() {
-    $sql = "SELECT * FROM movies WHERE genre='science-fiction'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function polar() {
-    $sql = "SELECT * FROM movies WHERE genre='polar'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function adventure() {
-    $sql = "SELECT * FROM movies WHERE genre='aventure'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function film_noir() {
-    $sql = "SELECT * FROM movies WHERE genre='film noir'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-   public function western() {
-    $sql = "SELECT * FROM movies WHERE genre='western'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function historic() {
-    $sql = "SELECT * FROM movies WHERE genre='historique'";
-    $req = $this->query($sql);
-    return $req;
-  }
-
-  public function docu() {
-    $sql = "SELECT * FROM movies WHERE genre='documentaire'";
-    $req = $this->query($sql);
-    return $req;
-  }
 
     //ajouter un film
 
