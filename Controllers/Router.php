@@ -27,6 +27,27 @@ class Router {
     elseif ($p === 'single') {
       $this->controller->single();
     }
+        elseif ($p === 'login') {
+      $this->controller->login();
+    }
+    elseif ($p === 'dashboard') {
+      $this->controller->dashboard();
+    }
+    elseif ($p === 'logout') {
+      $this->controller->logout();
+    }
+    elseif ($p === 'create') {
+      $this->controller->create();
+    }
+    elseif ($p === 'update') {
+      $this->controller->update();
+    }
+    elseif ($p === '404') {
+      $this->controller->error();
+    }
+    elseif ($p === 'account') {
+      $this->controller->account();
+    }
     
     $contenu = ob_get_clean();
     require 'views/default.php';

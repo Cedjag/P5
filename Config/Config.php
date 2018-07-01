@@ -8,7 +8,7 @@ class ConfigDB {
 	'username' => 'root',
 	'password' => '',
 	'host' => 'localhost',
-	'db_name' => 'streaming'
+	'db_name' => 'stream'
 	];
 
 	return $key;

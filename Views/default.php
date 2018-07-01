@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/assets/css/style.css">
+    <link href="public/assets/css/DropDownMenu.css" rel="stylesheet" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="public/img/favicon.ico" />
-    <script src="public/js/tinymce/tinymce.min.js"></script>
     <title><?= 'Le coin du cinéphile'?></title>
   </head>
   <body>
     <!-- Navigation -->
+
     <nav class="navbar navbar-inverse navbar-fixed-top headroom" role="navigation">
         <div class="container">
 
@@ -54,7 +55,11 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <script type="text/javascript" src="public/js/slider.js"></script>
-      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="public/js/star_rating.js"></script>
+      <script type="text/javascript" src="public/js/DropDownMenu-2.0.0.min.js"></script>
+      <script type="text/javascript"> $(document).ready(function() { 
+        $("#dropdown").juizDropDownMenu();
+      });
+      </script>
   </body>
   </html>

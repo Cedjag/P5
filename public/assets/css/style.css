@@ -1,34 +1,36 @@
-body 
-{
-    padding-top: 60px;
-    background: lightgrey;
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
 }
 
-#lastmovies
-{
-	text-align: center;
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Slider */
+.sidebar {
+  border-left: 1px solid #ccc; 
+  height: 100%;
+  padding-left: 10px;
+}
 
-.slider 
-{
-    width: 500px;
-    height: 300px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  max-width: 115px;
 }
- 
-.slide 
-{
-    position: absolute;
-    width: 100%;
-    height: 100%;
+
+.rating i {
+  cursor: pointer;
 }
- 
-.slides  
-{
-    font-size: 1.5em;
-    text-align: center;
+
+.rating > i.checked,
+.rating > i:hover:before,
+.rating > i:hover ~ i:before {
+  color: orange;
 }
