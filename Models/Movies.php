@@ -38,70 +38,53 @@ class Movies extends Connection{
 
     //ajouter un film
 
-  public function addMovie() {
+  public function addMovie($movie, $callback) {
+    $genres = array();
+    $sql = 'INSERT INTO `movies` (`movie_id`, `title`, `overview`, `video`, `genres`, `poster_path`, `release_date`, `popularity`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 
-    if (isset($_POST['submit']) AND isset($_POST['title']) AND isset($_POST['video']) AND isset($_POST['genre']) AND isset($_POST['version'])) {
-      $title = $_POST['title'];
-      $video = $_POST['video'];
-      $genre = $_POST['genre'];
-      $version = $_POST['version'];
-
-      if (isset($_FILES['illustration'])) {
-        if ($_FILES['illustration']['error'] == 4 ) {
-          $path = 'public/img/default.png';
-          $sql = 'INSERT INTO movies(title,video,genre,version,image) VALUES(?,?,?,?,?)';
-          $params = [$title, $video, $genre, $version, $path];
-          $req = $this->prepare($sql, $params);
-          header('Location:index.php?p=dashboard');
-        }
-
-        else {
-          $path = 'public/img/' . $titreIMG . '.jpg';
-          move_uploaded_file ( $_FILES['illustration']['tmp_name'], $path);
-          $sql = 'INSERT INTO movies(title,video,genre,version,image) VALUES(?,?,?,?,?)';
-          $params = [$title, $video, $genre, $version, $path];
-          $req = $this->prepare($sql, $params);
-          header('Location:index.php?p=dashboard');
-        }
-      }
-
+    foreach ($movie['genres'] as $genre) {
+      $genres[] = $genre['name'];
     }
+
+    $genres = implode(", ", $genres);
+
+    $params = [$movie['id'], $movie['title'], $movie['overview'], $movie['video'], $genres, $movie['poster_path'], $movie['release_date'], $movie['popularity']];
+    $this->query($sql, $params);
+    $callback($movie['id']);
   }
 
     //supprimer un film
 
-  public function deleteMovie() {
-    if (isset($_POST['delMovie'])) {
-      $sql = 'DELETE FROM movies WHERE id=?';
-      $params = [$_POST['delMovie']];
-      $req = $this->prepare($sql, $params);
-       header('Location:index.php?p=dashboard');
-    }
+  public function deleteMovie($id) {
+    $sql = 'DELETE FROM movies WHERE id = ?';
+    $params = [$id];
+    $req = $this->query($sql, $params);
   }
 
-  //mettre à jour un film.
+  //mettre à jour un film
 
-  public function updateMovie() {
+  public function updateMovie($params) {
+    $sql = 'UPDATE `movies` SET `video` = ? WHERE id = ?';
+    $this->query($sql, $params);
+  }
 
-    if (isset($_POST['update']) AND !empty($_POST['title']) AND !empty($_POST['video']) AND !empty($_POST['genre']) AND isset($_FILES['image'])) {
-        $title = $_POST['title'];
-        $video = $_POST['video'];
-        $genre = $_POST['genre'];
+  //vérifie si un film existe
 
-        if ($_FILES['image']['error'] == 4 ) {
-          $sql = "UPDATE movies SET title= ?, video= ?, genre= ? WHERE id=?";
-          $params = [$$title, $video, $genre, $_GET['id']];
-          $req = $this->prepare($sql, $params);
-          header('Location:index.php?p=single&id='. $_POST['update']);
-        }
-        else {
-          $path = 'public/img/' . $titleIMG . '.jpg';
-          move_uploaded_file ( $_FILES['image']['tmp_name'], $path);
-          $sql = "UPDATE movies SET title= ?, video= ?, genre= ?, image= ? WHERE id=?";
-          $params = [$title, $video, $genre, $path, $_GET['id']];
-          $req = $this->prepare($sql, $params);
-          header('Location:index.php?p=single&id='. $_POST['update']);
-        }
-      }
+  public function isMovieExists($id) {
+    $sql = 'SELECT * FROM movies WHERE movie_id = ?';
+    $params = [$id];
+    $req = $this->query($sql, $params, 'one');
+
+    if (!$req) return false;
+    else return true;
+  }
+
+    // Récupérer poster film
+  public function getPosterPath($path, $original = false, $width = 185, $height = 278) {
+    if (!$original) {
+      return 'https://image.tmdb.org/t/p/w'.$width.'_and_h'.$height.'_bestv2'.$path;
+    } else {
+      return 'https://image.tmdb.org/t/p/original'.$path;
+    }
   }
 }
