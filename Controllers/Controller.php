@@ -10,6 +10,7 @@ class Controller {
   private $Comment;
   private $Log_in;
   private $About_;
+  private $Client;
 
   public function __construct() {
     $token  = new \Tmdb\ApiToken(TMDB_API_KEY);
@@ -21,6 +22,7 @@ class Controller {
     $this->Cast = new Casts();
     $this->MovieCast = new MoviesCasts();
     $this->Log_in = new Login();
+    $this->Client = $client;
   }
 
   public function home() {

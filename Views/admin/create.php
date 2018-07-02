@@ -1,34 +1,27 @@
-  <div class="container container-single">
-    <div class="breadcrumb">
-      <a href="index.php?p=dashboard"> << Retour au tableau de bord.</a>
-    </div>
-    <h1><span class="glyphicon glyphicon-pencil"></span> Ajouter un film  <hr></h1>
-      <div class="row">
-        <form method="post" enctype="multipart/form-data">
-        <div class="col-md-10">
-          <div class="form-group">
-            <input type="text" name="title" placeholder="Saissisez le titre..." class="form-control">
-          </div>
-          <div class="form-group">
-            <b style="color:blue">Image d'illustration du chapitre :</b> <input type="file" name="miniature">
-          </div>
-          <div class="form-group">
-            <input type="text" name="video" placeholder="Saisissez le lien de la vidéo..." class="form-control">
-          </div>
-          <div class="form-group">
-            <input type="text" name="genre" placeholder="Saisissez le genre du film..." class="form-control">
-          </div>
-          <div class="form-group">
-            <input type="text" name="version" placeholder="Saisissez la version du film (vost, vf...)..." class="form-control">
-          </div>
+<div class="add mt-5 mb-5">
+  <div class="container">
+    <h1>Ajouter un film</h1>
+    <hr>
+    <div class="mt-5">
+      <?php if (sizeof($msg) > 0) { ?>
+        <div class="alert alert-info">
+          <ul style="list-style: none; margin: 0; padding: 0;">
+            <?php foreach ($msg as $m) { echo $m; } ?>
+          </ul>
         </div>
-
-        <div class="col-md-2">
-          <div class="form-group">
-            <input type="submit" name="submit" value="Publier" class="btn btn-success">
-          </div>
+      <?php } ?>
+      <form method="post">
+        <div class="form-group">
+          <label>API ID's</label>
+          <input class="form-control" type="text" name="ids" placeholder="1, 2, 3..." required />
         </div>
+        <div class="form-group">
+          <label>Liens des videos</label>
+          <input class="form-control" type="text" name="links" placeholder="http://..." />
+        </div>
+        <button type="submit" name="create" class="btn btn-success">Ajouter</button>
+        <a href="index.php?p=dashboard" class="btn btn-primary">Retour</a>
       </form>
-      </div>
-
+    </div>
   </div>
+</div>

@@ -28,7 +28,7 @@ class Movies extends Connection{
     }
   }
 
-  //Fonction qui retourne les derniers films mis en ligne
+  //Fonction qui retourne les derniers films ajoutés
 
   public function lastMovies() {
     $sql = "SELECT * FROM movies ORDER BY id DESC LIMIT 0, 10";
