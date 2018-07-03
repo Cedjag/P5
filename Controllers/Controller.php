@@ -11,6 +11,7 @@ class Controller {
   private $Log_in;
   private $About_;
   private $Client;
+  private $Rating;
 
   public function __construct() {
     $token  = new \Tmdb\ApiToken(TMDB_API_KEY);
@@ -19,9 +20,11 @@ class Controller {
     $client->getHttpClient()->addSubscriber($plugin);
 
     $this->Movie = new Movies();
+    $this->Comment = new Critics();
     $this->Cast = new Casts();
     $this->MovieCast = new MoviesCasts();
     $this->Log_in = new Login();
+    $this->Rating = new Rating();
     $this->Client = $client;
   }
 
@@ -37,6 +40,9 @@ class Controller {
       $movie = $this->Movie->getMovie($id);
       $poster = $this->Movie->getPosterPath($movie['poster_path'], false, 300, 450);
       $cast = $this->Cast;
+      $msg = $this->Comment->reportCritic();
+      $this->Comment->insertCritic();
+      $critics = $this->Comment->findAllWithChildren($_GET['id']);
       $rating = $this->Rating->avg($movie['id']);
       $view = require 'views/single.php';
     } else {
@@ -89,7 +95,7 @@ class Controller {
                 }
               });
             } catch (Exception $e) {
-              $msg[] = '<li style="color: red;">An excepetion adding movie with '.$id.' ID</li>';
+              $msg[] = '<li style="color: red;">An exception adding movie with '.$id.' ID</li>';
             }
             $msg[] = '<li style="color: green;">The movie '.$id.' ID added successfully.</li>';
           } else {
@@ -138,6 +144,19 @@ class Controller {
     $msg = $this->Log_in->newPass();
     $about = $this->About_->getAbout();
     require 'views/admin/account.php';
+  }
+
+  // Rating
+  public function rating() {
+    if (isset($_GET['id']) && isset($_GET['value'])) {
+      $id = $_GET['id'];
+      $value = $_GET['value'];
+      $this->Rating->rate($id, $value);
+    }
+  }
+
+    public function contact() {
+    require 'views/contact.php';
   }
 
   public function error() {

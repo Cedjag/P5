@@ -12,6 +12,8 @@ class Router {
 
   public function RouterRequest() {
 
+    require 'views/header.php';
+
     if (isset($_GET['p'])) {
       $p = $_GET['p'];
     }
@@ -42,15 +44,22 @@ class Router {
     elseif ($p === 'update') {
       $this->controller->update();
     }
+    elseif ($p === 'delete') {
+      $this->controller->delete();
+    }
+    elseif ($p === 'rating') {
+      $this->controller->rating();
+    }
     elseif ($p === '404') {
       $this->controller->error();
     }
     elseif ($p === 'account') {
       $this->controller->account();
     }
+    elseif ($p === 'contact') {
+      $this->controller->contact();
+    }
     
-    $contenu = ob_get_clean();
-    require 'views/default.php';
+    require 'views/footer.php';  
   }
-
 }

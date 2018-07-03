@@ -14,18 +14,12 @@ class Movies extends Connection{
 
   //Fonction qui retourne un film.
 
-  public function getSingle($id) {
-
-    $sql = "SELECT * FROM movies WHERE id=?";
+  public function getMovie($id) {
+    $sql = "SELECT * FROM `movies` WHERE `id` = ?";
     $params = [$id];
-    $result = $this->prepare($sql, $params,'one');
-
-    if ($result == false) {
-      header('Location:index.php?p=404');
-    }
-    else {
-      return $result;
-    }
+    $result = $this->query($sql, $params, 'one');
+    if ($result == false) header('Location:index.php?p=404');
+    else { return $result; }
   }
 
   //Fonction qui retourne les derniers films ajoutés

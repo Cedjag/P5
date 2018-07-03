@@ -11,7 +11,7 @@ class Critics extends Connection{
               FROM critics
               WHERE id_movie = ?";
       $params = [$post_id];
-      $critics = $this->prepare($sql,$params,'all');
+      $critics = $this->query($sql,$params,'all');
       $critics_by_id = [];
       foreach ($critics as $critic) {
           $critics_by_id[$critic->id] = $critic;
@@ -42,7 +42,7 @@ class Critics extends Connection{
   public function findCritics() {
 
     $sql = "SELECT *,DATE_FORMAT(date, '%d/%m/%Y à %H:%i') AS date FROM critics WHERE report=1";
-    $req = $this->prepare($sql);
+    $req = $this->query($sql);
     return $req;
    }
 
@@ -66,23 +66,22 @@ class Critics extends Connection{
 
           $sql = 'SELECT id, depth  FROM critics WHERE  id = ?';
           $params = [$parent_id];
-          $critic = $this->prepare($sql,$params, 'one');
+          $critic = $this->query($sql,$params, 'one');
           if ($critic == false) {
             throw new Exception("Ce parent n'existe pas");
           }
           $depth = $critic->depth + 1;
         }
          if ($depth >= 3) {
-           echo "Impossible de rajouter un commentaires";
+           echo "Impossible de rajouter une critique";
          }
          else {
            $sql = 'INSERT INTO critics SET content = ?, author = ?, id_movie = ?, parent_id = ?, date = NOW(), depth = ?';
            $params = array($_POST['content'], $_POST['nom'], $_GET['id'], $parent_id, $depth);
-           $req = $this->prepare($sql,$params);
+           $req = $this->query($sql,$params);
          }
        }
    }
-
 
 
    //signaler une critique
@@ -93,7 +92,7 @@ class Critics extends Connection{
        $id = $_POST['idval'];
        $sql = 'UPDATE critics SET report = 1 WHERE id_movie =? AND id=?';
        $params = [$value, $id];
-       $this->prepare($sql, $params);
+       $this->query($sql, $params);
        $msg = '<div class="alert alert-warning alert-signal">La critique a été signalée.</div>';
        return $msg;
      }
@@ -108,7 +107,7 @@ class Critics extends Connection{
        $idCritic = $_POST['idOK'];
        $sql = 'UPDATE critics SET report = 0 WHERE id_movie=? AND id=?';
        $params = [$idFilm, $idCritic];
-       $this->prepare($sql, $params);
+       $this->query($sql, $params);
        header('Location:index.php?p=dashboard');
      }
    }
@@ -121,7 +120,7 @@ class Critics extends Connection{
        $idCritic = $_POST['idDEL'];
       $sql ='DELETE FROM critics WHERE id=? AND id_movie=?';
       $params = [$idCritic,$idFilm];
-      $this->prepare($sql, $params);
+      $this->query($sql, $params);
       header('Location:index.php?p=dashboard');
      }
    }

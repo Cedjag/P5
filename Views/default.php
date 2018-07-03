@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-lg-12 footer">
             <li><a href="index.php?p=login">Espace d'administration</a></li>
-            <li>contacter le <a href="mailto:contact@cedricjager.com"> Coin du cinéphile</a></li></div>
+            <li>contacter le <a href="index.php?p=contact"> Coin du cinéphile</a></li></div>
           </div>
         </div>
 
