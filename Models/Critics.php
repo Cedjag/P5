@@ -11,10 +11,10 @@ class Critics extends Connection{
               FROM critics
               WHERE id_movie = ?";
       $params = [$post_id];
-      $critics = $this->query($sql,$params,'all');
+      $comms = $this->query($sql,$params,'all');
       $critics_by_id = [];
-      foreach ($critics as $critic) {
-          $critics_by_id[$critic->id] = $critic;
+      foreach ($comms as $comm) {
+          $critics_by_id[$comm->id] = $comm;
       }
       return $critics_by_id;
   }
@@ -24,16 +24,16 @@ class Critics extends Connection{
 
   public function findAllWithChildren($post_id, $unset_children = true) {
 
-    $critics = $critics_by_id = $this->findAllById($post_id);
-    foreach ($critics as $id => $critic) {
-        if ($critic->parent_id != 0) {
-            $critics_by_id[$critic->parent_id]->children[] = $critic;
+    $comms = $critics_by_id = $this->findAllById($post_id);
+    foreach ($comms as $id => $comm) {
+        if ($comm->parent_id != 0) {
+            $critics_by_id[$comm->parent_id]->children[] = $comm;
             if ($unset_children) {
-                unset($critics[$id]);
+                unset($comms[$id]);
             }
         }
     }
-    return $critics;
+    return $comms;
   }
 
 
@@ -66,11 +66,11 @@ class Critics extends Connection{
 
           $sql = 'SELECT id, depth  FROM critics WHERE  id = ?';
           $params = [$parent_id];
-          $critic = $this->query($sql,$params, 'one');
-          if ($critic == false) {
+          $comm = $this->query($sql,$params, 'one');
+          if ($comm == false) {
             throw new Exception("Ce parent n'existe pas");
           }
-          $depth = $critic->depth + 1;
+          $depth = $comm->depth + 1;
         }
          if ($depth >= 3) {
            echo "Impossible de rajouter une critique";

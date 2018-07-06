@@ -20,10 +20,9 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-5">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Genres
-                </a>
+              <li class="nav-item active">
+                <a class="nav-link" href="index.php?p=contact">Contact<span class="sr-only">(current)</span></a>
+              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="index.php?p=login">Espace d'administration <span class="sr-only">(current)</span></a>
               </li>

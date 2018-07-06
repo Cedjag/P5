@@ -30,7 +30,6 @@ class Controller {
 
   public function home() {
     $movie = $this->Movie;
-    $films = $this->Movie->lastMovies();
     $view = require 'views/home.php';
   }
 

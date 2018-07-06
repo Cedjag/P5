@@ -1,4 +1,4 @@
-<div class="col-md-8 maincontent">
+<div class="container">
   <div class="row mt-5 mb-5">
     <div class="col-md-8">
       <div class="row">
@@ -16,15 +16,35 @@
         <?php } ?>
       </div>
     </div>
-</div>
-
-    <aside class="col-md-4 sidebar sidebar-right">
-      <h2 id="lastmovies">Les derniers films ajoutés</h2><br>
-        <div id="slider">
-          <?php foreach ($films as $slide) : ?>
-            <div class="slides">
-              <a id="slide" href="index.php?p=single&id=<?= $slide->id ?>"><img src="<?= $slide->image ?>" class="thumbnailPost"><p><?= $slide->title ?></p></a>
-            </div>      
-          <?php endforeach; ?>
+    <div class="sidebar col-md-3 offset-md-1">
+      <div class="">
+        <h4 class="mb-3">Les films les plus populaires</h4>
+        <hr>
+        <div class="row">
+          <?php foreach($movie->getPopularMovies(4) as $m) { ?>
+            <div class="col-lg-6 col-md-12">
+              <div class="mx-auto mb-3">
+                <a href="?p=single&id=<?php echo $m['id']; ?>" class="card-link">
+                  <img class="img-thumbnail img-fluid" src="<?php echo $movie->getPosterPath($m['poster_path'], false, 92, 138); ?>" alt="<?php echo $m['title']; ?>">
+                </a>
+              </div>
+            </div>
+          <?php } ?>
         </div>
-    </aside>
+        <h4 class="mb-3">Les derniers films ajoutés</h4>
+        <hr>
+        <div class="row">
+          <?php foreach($movie->lastMovies(4) as $l) { ?>
+            <div class="col-lg-6 col-md-12">
+              <div class="mx-auto mb-3">
+                <a href="?p=single&id=<?php echo $l['id']; ?>" class="card-link">
+                  <img class="img-thumbnail img-fluid" src="<?php echo $movie->getPosterPath($l['poster_path'], false, 92, 138); ?>" alt="<?php echo $l['title']; ?>">
+                </a>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -34,3 +34,33 @@
 .rating > i:hover ~ i:before {
   color: orange;
 }
+
+
+/* Slider home.php */
+
+#slider 
+{
+    width: 500px;
+    height: 340px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+ 
+.slide 
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+ 
+.slides  
+{
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#lastmovies
+{
+	text-align: center;
+}

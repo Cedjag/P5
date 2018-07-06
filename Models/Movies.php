@@ -22,12 +22,19 @@ class Movies extends Connection{
     else { return $result; }
   }
 
+  // Classement des films par popularité
+  public function getPopularMovies($offset = null) {
+    $sql = 'SELECT * FROM `movies` ORDER BY `popularity` DESC';
+    if ($offset) $sql .= ' LIMIT '.$offset;
+    return $this->query($sql, null, 'all');
+  }
+
   //Fonction qui retourne les derniers films ajoutés
 
-  public function lastMovies() {
-    $sql = "SELECT * FROM movies ORDER BY id DESC LIMIT 0, 10";
-    $req = $this->query($sql);
-      return $req;
+  public function lastMovies($offset = null) {
+    $sql = "SELECT * FROM movies ORDER BY id DESC";
+    if ($offset) $sql .= ' LIMIT '.$offset;
+      return $this->query($sql, null, 'all');
     }
 
     //ajouter un film
