@@ -60,6 +60,7 @@ class Controller {
     $movie = $this->Movie;
     $comment = $this->Comment->findCritics();
     $this->Comment->appCritic();
+    $msg = $this->Comment->noCritic();
     $delete = $this->Comment->deleteCritic();
     require 'views/admin/dashboard.php';
   }
