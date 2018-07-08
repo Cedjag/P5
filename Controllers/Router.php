@@ -29,7 +29,7 @@ class Router {
     elseif ($p === 'single') {
       $this->controller->single();
     }
-        elseif ($p === 'login') {
+    elseif ($p === 'login') {
       $this->controller->login();
     }
     elseif ($p === 'dashboard') {
@@ -58,6 +58,9 @@ class Router {
     }
     elseif ($p === 'contact') {
       $this->controller->contact();
+    }
+    elseif ($p === 'list') {
+      $this->controller->list();
     }
     
     require 'views/footer.php';  

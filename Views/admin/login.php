@@ -1,8 +1,6 @@
   <div class="container">
     <div class="admin">
-      <div class="hello">
-        <h2>Bonjour admin </h2>
-      </div>
+
       <form method="post" class="form-group">
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>

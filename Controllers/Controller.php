@@ -162,4 +162,9 @@ class Controller {
   public function error() {
     require 'views/404.php';
   }
+
+  public function list(){
+    $movie = $this->Movie;
+    $view = require 'views/list.php';
+  }
 }

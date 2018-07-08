@@ -43,7 +43,7 @@ class Login extends Connection{
 
         $sql = 'SELECT * from admin WHERE username = ? AND password = ?';
         $params = [$userid, $password];
-        $req = $this->prepare($sql, $params,'one');
+        $req = $this->query($sql, $params,'one');
         return $req;
     }
 

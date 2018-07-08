@@ -13,6 +13,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+          <img src="public/assets/img/film1280.png" alt="logo site">
           <a class="navbar-brand" href="index.php">Le coin du cinéphile</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,15 +22,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-5">
               <li class="nav-item active">
+                <a class="nav-link" href="index.php?p=list">Tous les films<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
                 <a class="nav-link" href="index.php?p=contact">Contact<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.php?p=login">Espace d'administration <span class="sr-only">(current)</span></a>
+                <a class="nav-link" id="admin" href="index.php?p=login">Espace d'administration <span class="sr-only">(current)</span></a>
               </li>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Comédie</a>
-                </div>
               </li>
             </ul>
           </div>
