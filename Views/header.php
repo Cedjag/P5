@@ -14,7 +14,9 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <img src="public/assets/img/film1280.png" alt="logo site">
-          <a class="navbar-brand" href="index.php">Le coin du cinéphile</a>
+          <div id="logo">
+            <a class="navbar-brand" href="index.php">Le coin du cinéphile</a>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,10 +29,16 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.php?p=contact">Contact<span class="sr-only">(current)</span></a>
               </li>
+              <li id="twitter">
+                <a href="https://twitter.com/" target="_blank" ><i class="fab fa-twitter-square fa-3x"></i></a>
+              </li> 
+              <li id="fb">
+               <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-3x"></i></a>
+              </li>
               <li class="nav-item active">
                 <a class="nav-link" id="admin" href="index.php?p=login">Espace d'administration <span class="sr-only">(current)</span></a>
               </li>
-              </li>
+
             </ul>
           </div>
         </div>

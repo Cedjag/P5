@@ -14,7 +14,7 @@ class Critics extends Connection{
       $comms = $this->query($sql,$params,'all');
       $critics_by_id = [];
       foreach ($comms as $comm) {
-          $critics_by_id[$comm->id] = $comm;
+          $critics_by_id[$comm['id']] = $comm;
       }
       return $critics_by_id;
   }
@@ -26,7 +26,7 @@ class Critics extends Connection{
 
     $comms = $critics_by_id = $this->findAllById($post_id);
     foreach ($comms as $id => $comm) {
-        if ($comm->parent_id != 0) {
+        if ($comm['parent_id'] != 0) {
             $critics_by_id[$comm->parent_id]->children[] = $comm;
             if ($unset_children) {
                 unset($comms[$id]);

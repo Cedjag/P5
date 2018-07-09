@@ -21,14 +21,18 @@
           <?php } ?>
         </div>
         <h4>Synopsis</h4>
+        <hr>
         <p class="lead"><?php echo $movie['overview']; ?></p>
         <h5>Date de sortie</h5>
+        <hr>
         <p><?php echo $movie['release_date']; ?></p>
         <h5>Genres</h5>
+        <hr>
         <p><?php echo $movie['genres']; ?></p>
       </div>
     </div>
-    <h4 class="mb-3">Tête d'affiche</h4>
+    <h4 class="mb-3">Casting</h4>
+    <hr>
     <div class="row mb-5">
       <?php foreach ($cast->getCasts($movie['movie_id'], 5) as $c) { ?>
         <div class="col-md-2">
@@ -55,7 +59,7 @@
 
         <!-- SECTION Critiques -->
 
-      <div class="Sectioncommentaires" id="commentaires">
+      <div class="sectioncomments" id="comments">
         <?php foreach($critics as $critic): ?>
             <?php require('comments.php'); ?>
         <?php endforeach; ?>
@@ -91,4 +95,4 @@
 
       </div>
     </div>
-  </div>
+

@@ -7,5 +7,6 @@
 	<script src="public/assets/js/main.js"></script>
 	<script src="public/assets/js/stupidtable.min.js"></script>
 	<script src="public/assets/js/list.js"></script>
+	<script src="public/assets/js/app.js"></script>
 </body>
 </html>

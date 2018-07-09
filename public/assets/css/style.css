@@ -1,3 +1,15 @@
+body
+{
+  background-color: rgb(219,219,219);
+  color: rgb(20,22,101);
+}
+
+.card.mb-3
+{
+  background-color: rgb(219,219,219);
+  border-color: rgb(219,219,219);
+}
+
 /* Page d'accueil */
 
 figcaption
@@ -23,8 +35,6 @@ figure:hover figcaption
 
 /* header */
 
-
-
 .row p
 {
   text-align: center;
@@ -35,15 +45,16 @@ figure:hover figcaption
   margin: auto;
 }
 
-#htitle, #hgenre
+figcaption
 {
-  line-height: 1em;
+  line-height: 0.8em;
 }
 
-.navbar-brand
+#logo
 {
   margin-left: 30px;
   font-size: 1.5em;
+  background-image: "http://www.cedricjager.com/stream/public/assets/img/banner.png";
 }
 
 .nav-link
@@ -51,9 +62,20 @@ figure:hover figcaption
   margin-left: 30px;
 }
 
-#navbarSupportedContent
+#navbarSupportedContent ul
 {
   justify-content: space-around;
+}
+
+#fb, #twitter
+{
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+#twitter
+{
+  margin-left: 30px;
 }
 
 /* Page single */
@@ -94,7 +116,23 @@ figure:hover figcaption
   color: orange;
 }
 
+.sectioncomments
+{
+  width: 85%;
+}
+
+.lead
+{
+  justify-content: left;
+}
+
 /* Liste des films */
+
+.scroll
+{
+  overflow:scroll;
+  height: 1000px;
+}
 
 table 
 {
@@ -138,4 +176,124 @@ th, td
 }
 
 
+/* Contact form */
 
+/* Account.php */
+
+.row.row-account
+{
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.row.row-account h1
+{
+  margin-right: 50px;
+  font-size: 1.3em;
+}
+
+/* Dashboard */
+.dashboard
+{
+  margin-top: 50px;
+}
+
+/*Administration*/
+
+.admin 
+{
+  padding: 35px;
+  height: 500px;
+  width: 450px;
+  margin: 150px auto;
+}
+
+.dashboard, .account
+{
+  padding-top: 35px;
+  min-height: 800px;
+}
+
+.gestionPanel
+{
+  margin-top: 35px;
+}
+
+.about 
+{
+  margin-top: 25px;
+}
+
+.update
+{
+  padding: 35px;
+}
+
+.admin-titre
+{
+  display: flex;
+}
+
+.comment_form
+{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  background-color: red;
+}
+
+.gestionPanel .panel-heading 
+{
+  background-color: rgb(37,137,39) !important;
+  color: white !important;
+}
+
+.btn-warning
+{
+    background-color: rgb(37,137,39) !important;
+    border-color: rgb(37,137,39) !important;
+    color: white;
+}
+
+.singleContent 
+{
+  width: 90%;
+  margin: auto;
+  padding-top: 15px;
+}
+
+.admin .hello 
+{
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.admin .btn-success 
+{
+  background-color: rgb(104, 1, 72) !important;
+  border: none !important;
+}
+
+.row-account 
+{
+  padding-top: 35px !important.
+}
+
+.noDisplay{
+  display: none;
+}
+
+#badComments {
+margin-top: 35px;
+}
+
+#badComments .panel-heading {
+  background-color: rgb(37,137,39) !important;
+  color: white !important;
+}
+
+/* Login.php*/
+#login_page
+{
+  margin-top: 50px;
+  width: 35%;
+}

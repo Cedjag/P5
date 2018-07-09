@@ -9,7 +9,6 @@ class Controller {
   public $MovieCast;
   private $Comment;
   private $Log_in;
-  private $About_;
   private $Client;
   private $Rating;
 
@@ -139,10 +138,8 @@ class Controller {
   }
 
   public function account() {
-    $this->About_->setAbout();
     $this->Log_in->notLogin();
     $msg = $this->Log_in->newPass();
-    $about = $this->About_->getAbout();
     require 'views/admin/account.php';
   }
 
@@ -161,6 +158,10 @@ class Controller {
 
   public function error() {
     require 'views/404.php';
+  }
+
+  public function logout() {
+    require 'views/admin/logout.php';
   }
 
   public function list(){

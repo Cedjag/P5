@@ -1,7 +1,7 @@
 <div class="single mb-5 mt-5">
   <div class="container">
+  <div class="scroll">
   <table id="movie_list">
-
     <thead>
     <tr>
       <th data-sort="string">Titre <i class="fa fa-sort"></i></th>
@@ -28,5 +28,6 @@
       $("#movie_list").stupidtable();
       }); 
     </script>
+  </div>
   </div>
 </div>
