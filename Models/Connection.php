@@ -1,4 +1,4 @@
-<?php require_once 'Config/Config.php';
+<?php require_once 'ConfigDB.php';
 
 class Connection {
 

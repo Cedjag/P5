@@ -12,7 +12,7 @@
       <?php } ?>
       <form method="post">
         <div class="form-group">
-          <label>API ID's</label>
+          <label>API ID</label>
           <input class="form-control" type="text" name="ids" placeholder="1, 2, 3..." required />
         </div>
         <div class="form-group">

@@ -10,6 +10,6 @@ class Autoload {
    
   static function myAutoload($class_name) {
     $class = ucfirst($class_name);
-    require 'models/' . $class . '.php';
+    require 'Models/' . $class . '.php';
   }
 }

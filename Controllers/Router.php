@@ -12,7 +12,7 @@ class Router {
 
   public function RouterRequest() {
 
-    require 'views/header.php';
+    require 'Views/header.php';
 
     if (isset($_GET['p'])) {
       $p = $_GET['p'];
@@ -63,6 +63,6 @@ class Router {
       $this->controller->list();
     }
     
-    require 'views/footer.php';  
+    require 'Views/footer.php';  
   }
 }

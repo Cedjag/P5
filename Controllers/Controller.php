@@ -29,7 +29,7 @@ class Controller {
 
   public function home() {
     $movie = $this->Movie;
-    $view = require 'views/home.php';
+    $view = require 'Views/home.php';
   }
 
   public function single() {
@@ -42,7 +42,7 @@ class Controller {
       $this->Comment->insertCritic();
       $critics = $this->Comment->findAllWithChildren($_GET['id']);
       $rating = $this->Rating->avg($movie['id']);
-      $view = require 'views/single.php';
+      $view = require 'Views/single.php';
     } else {
       header('Location:index.php?p=404');
     }
@@ -51,7 +51,7 @@ class Controller {
   public function login(){
     $error = $this->Log_in->Log();
     $this->Log_in->alreadyConnect();
-    $view = require 'views/admin/login.php';
+    $view = require 'Views/admin/login.php';
   }
 
   public function dashboard(){
@@ -61,7 +61,7 @@ class Controller {
     $this->Comment->appCritic();
     $msg = $this->Comment->noCritic();
     $delete = $this->Comment->deleteCritic();
-    require 'views/admin/dashboard.php';
+    require 'Views/admin/dashboard.php';
   }
 
   // Ajout films
@@ -103,7 +103,7 @@ class Controller {
         }
       }
     }
-    require 'views/admin/create.php';
+    require 'Views/admin/create.php';
   }
 
   // Mise à jour films
@@ -117,7 +117,7 @@ class Controller {
         $this->Movie->updateMovie([$video, $id]);
         $msg[] = '<li style="color: green;">Movie '.$movie['id'].' ID updated successfully.</li>';
       }
-      require 'views/admin/update.php';
+      require 'Views/admin/update.php';
     } else {
       header('Location: index.php?p=dashboard');
     }
@@ -140,7 +140,7 @@ class Controller {
   public function account() {
     $this->Log_in->notLogin();
     $msg = $this->Log_in->newPass();
-    require 'views/admin/account.php';
+    require 'Views/admin/account.php';
   }
 
   // Rating
@@ -153,19 +153,19 @@ class Controller {
   }
 
     public function contact() {
-    require 'views/contact.php';
+    require 'Views/contact.php';
   }
 
   public function error() {
-    require 'views/404.php';
+    require 'Views/404.php';
   }
 
   public function logout() {
-    require 'views/admin/logout.php';
+    require 'Views/admin/logout.php';
   }
 
   public function list(){
     $movie = $this->Movie;
-    $view = require 'views/list.php';
+    $view = require 'Views/list.php';
   }
 }

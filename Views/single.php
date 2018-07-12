@@ -52,9 +52,26 @@
         <div class="video-wrapper">
           <iframe src="<?php echo $movie['video']; ?>" frameborder="0" allowfullscreen></iframe>
         </div>
+          <div id="share-buttons">
+            <?php $currentPage=$_SERVER['PHP_SELF']; ?>
+        <!-- Facebook -->
+            <a href="http://www.facebook.com/sharer.php?u=<?php $currentPage ?>" target="_blank">
+                <img src="public/assets/img/facebook.png" alt="Facebook">
+            </a>            
+            <!-- Pinterest -->
+            <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                <img src="public/assets/img/pinterest.png" alt="Pinterest">
+            </a>
+
+             <!-- Twitter -->
+            <a href="https://twitter.com/share?url=<?php $currentPage ?>" target="_blank">
+                <img src="public/assets/img/twitter.png" alt="Twitter">
+            </a>   
+        </div>
       </div>
     </div>
   </div>
+
         <hr>
 
         <!-- SECTION Critiques -->

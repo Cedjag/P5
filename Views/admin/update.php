@@ -1,6 +1,6 @@
 <div class="update mt-5 mb-5">
   <div class="container">
-    <h2>Edit: <?php echo $movie['title']; ?></h2>
+    <h2>Modifier <?php echo $movie['title']; ?></h2>
     <hr>
     <div class="mt-5">
       <?php if (sizeof($msg) > 0) { ?>
