@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
     e.preventDefault();
     var $form = $('#form-comment');
     var $comment = $('#comment-');
-    var $commentaires = $('#commentaires');
+    var $commentaires = $('#comments');
 
 
     $form.find('h4').text('Publier un commentaire');

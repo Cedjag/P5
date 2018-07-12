@@ -27,7 +27,7 @@
         <h4 class="mb-3">Les films les plus populaires</h4>
         <hr>
         <div class="row">
-          <?php foreach($movie->getPopularMovies(8) as $m) { ?>
+          <?php foreach($movie->getPopularMovies(10) as $m) { ?>
             <div class="col-lg-6 col-md-12">
               <div class="mx-auto mb-3">
                 <a href="?p=single&id=<?php echo $m['id']; ?>" class="card-link">
@@ -37,6 +37,7 @@
             </div>
           <?php } ?>
         </div>
+        <hr>
       </div>
     </div>
   </div>

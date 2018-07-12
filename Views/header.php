@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/assets/css/fontawesome.css">
     <link rel="stylesheet" href="public/assets/css/style.css">
+    <link rel="icon" href="public/assets/img/favicon.ico" />
     <title>Le coin du cinéphile</title>
   </head>
   <body>
@@ -28,16 +29,17 @@
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="index.php?p=contact">Contact<span class="sr-only">(current)</span></a>
-              </li>
-              <li id="twitter">
-                <a href="https://twitter.com/" target="_blank" ><i class="fab fa-twitter-square fa-3x"></i></a>
-              </li> 
-              <li id="fb">
-               <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-3x"></i></a>
-              </li>
+              </li>              
               <li class="nav-item active">
                 <a class="nav-link" id="admin" href="index.php?p=login">Espace d'administration <span class="sr-only">(current)</span></a>
               </li>
+              <li id="twitter">
+                <a href="https://twitter.com/" target="_blank" ><img src="public/assets/img/twitter_small.png" alt="twitter"></a>
+              </li> 
+              <li id="fb">
+               <a href="https://www.facebook.com/" target="_blank"><img src="public/assets/img/facebook_small.png" alt="facebook"></a></a>
+              </li>
+
 
             </ul>
           </div>

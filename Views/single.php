@@ -1,4 +1,5 @@
 <div class="single mb-5 mt-5" data-id="<?php echo $movie['id']; ?>">
+  <?= $msg ?>
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-4">
@@ -34,7 +35,7 @@
     <h4 class="mb-3">Casting</h4>
     <hr>
     <div class="row mb-5">
-      <?php foreach ($cast->getCasts($movie['movie_id'], 5) as $c) { ?>
+      <?php foreach ($cast->getCasts($movie['movie_id'], 6) as $c) { ?>
         <div class="col-md-2">
           <div class="card">
             <img class="card-img-top" src="<?php echo $cast->getProfilePath($c['profile_path']); ?>" alt="<?php echo $c['name']; ?>">
@@ -70,7 +71,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
         <hr>
 
@@ -92,13 +93,13 @@
             <div class="panel panel-body">
               <form method="post"  class="form-group form-horizontal">
                 <div class="form-group">
-                  <label class="control-label col-sm-3" for="nom">Nom: </label>
+                  <label class="control-label col-sm-3" for="nom">Nom </label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="nom" placeholder="Votre nom..." name="nom">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-sm-3" for="content">Commentaire :</label>
+                  <label class="control-label col-sm-3" for="content">Avis</label>
                   <div class="col-sm-9">
                     <textarea class="form-control" id="content" placeholder="Votre commentaire" name="content"></textarea>
                   </div>
@@ -112,4 +113,6 @@
 
       </div>
     </div>
+  </div>
+
 

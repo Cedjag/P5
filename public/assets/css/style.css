@@ -35,6 +35,12 @@ figure:hover figcaption
 
 /* header */
 
+nav
+{
+  background-color: red;
+  color: yellow;
+}
+
 .row p
 {
   text-align: center;
@@ -54,7 +60,11 @@ figcaption
 {
   margin-left: 30px;
   font-size: 1.5em;
-  background-image: "http://www.cedricjager.com/stream/public/assets/img/banner.png";
+}
+
+#logo a
+{
+  font-size: 1.3em;
 }
 
 .nav-link
@@ -75,7 +85,7 @@ figcaption
 
 #twitter
 {
-  margin-left: 30px;
+  margin-left: 70px;
 }
 
 /* Page single */
@@ -116,14 +126,19 @@ figcaption
   color: orange;
 }
 
-.sectioncomments
+.formulaire .glyphicon-share-alt 
 {
-  width: 85%;
+  color: rgb(69,82,233);
+}
+
+.formulaire .glyphicon-warning-sign 
+{
+  color: rgb(209, 68, 23);
 }
 
 .lead
 {
-  justify-content: left;
+  text-align: justify !important;
 }
 
 /* Liste des films */
@@ -195,6 +210,13 @@ th, td
 }
 
 /* Contact form */
+
+#contact_title
+{
+  font-size: 1.8em;
+  margin-top: 50px;
+  text-align: center;
+}
 
 /* Account.php */
 
@@ -293,7 +315,7 @@ th, td
 
 .row-account 
 {
-  padding-top: 35px !important.
+  padding-top: 35px !important;
 }
 
 .noDisplay{
