@@ -152,8 +152,26 @@ class Controller {
     }
   }
 
-    public function contact() {
-    require 'Views/contact.php';
+  public function contact() {
+    if(!empty($_POST) && isset($_POST['btnContact'])){
+        if(isset($_POST['email']) && isset($_POST['firstname']) && isset($_POST['message'])){
+            if(!empty($_POST['email']) && !empty($_POST['firstname']) && !empty($_POST['message'])){
+                $email = htmlspecialchars($_POST['email']);
+                $firstname = htmlspecialchars($_POST['firstname']);
+                $message = htmlspecialchars($_POST['message']);
+
+                $message .= ' - email envoyé par: ' . $firstname . ' : ' . $email;
+
+                // ENVOYER UN EMAIL
+                mail('contact@cedricjager.com', 'Contact Le coin du cinéphile', $message);
+            }else{
+                $error = "Vous devez remplir tous les champs !";
+            }
+        }else{
+            $error = "Une erreur s'est produite. Réessayez !";
+        }
+    }
+  require 'Views/contact.php';
   }
 
   public function error() {
