@@ -27,7 +27,7 @@
         <h4 class="mb-3">Les films les plus populaires</h4>
         <hr>
         <div class="row">
-          <?php foreach($movie->getPopularMovies(10) as $m) { ?>
+          <?php foreach($movie->getPopularMovies(6) as $m) { ?>
             <div class="col-lg-6 col-md-12">
               <div class="mx-auto mb-3">
                 <a href="?p=single&id=<?php echo $m['id']; ?>" class="card-link">
@@ -38,6 +38,20 @@
           <?php } ?>
         </div>
         <hr>
+        <div class="">
+        <h4 class="mb-3">Les films les mieux notés</h4>
+        <hr>
+        <div class="row">
+          <?php foreach($movie->getBestMovies(6) as $b) { ?>
+            <div class="col-lg-6 col-md-12">
+              <div class="mx-auto mb-3">
+                <a href="?p=single&id=<?php echo $b['id']; ?>" class="card-link">
+                  <img class="img-thumbnail img-fluid" src="<?php echo $movie->getPosterPath($b['poster_path'], false, 92, 138); ?>" alt="<?php echo $b['title']; ?>">
+                </a>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
       </div>
     </div>
   </div>

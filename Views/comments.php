@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div style="padding-left: 50px;">
+<div id="answer">
     <?php if(isset($critic['children'])): ?>
         <?php foreach($critic['children'] as $critic): ?>
             <?php require('comments.php'); ?>

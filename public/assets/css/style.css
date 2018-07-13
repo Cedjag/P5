@@ -281,6 +281,11 @@ th, td
   background-color: red;
 }
 
+#answer
+{
+  margin-left: 30px;
+}
+
 .gestionPanel .panel-heading 
 {
   background-color: rgb(37,137,39) !important;
