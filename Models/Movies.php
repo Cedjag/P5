@@ -32,7 +32,7 @@ class Movies extends Connection{
   // Classement des films par note
 
   public function getBestMovies($offset = null) {
-    $sql = 'SELECT movies.*, AVG(movies_ratings.rating) AS rating FROM movies LEFT JOIN movies_ratings ON movies.id = movies_ratings.id GROUP BY movies.id ORDER BY rating DESC';
+    $sql = 'SELECT movies.*, AVG(movies_ratings.rating) AS rating FROM movies LEFT JOIN movies_ratings ON movies.id = movies_ratings.movie_id GROUP BY movies.id ORDER BY rating DESC';
     if ($offset) $sql .= ' LIMIT '.$offset;
     return $this->query($sql, null, 'all');
   }

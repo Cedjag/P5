@@ -12,6 +12,21 @@ body
 
 /* Page d'accueil */
 
+.row.mt-5.mb-5
+{
+  justify-content: space-around;
+}
+
+.sidebar.col-md-3, .col-md-7
+{
+  margin-top: 30px;
+}
+
+h4
+{
+  text-align: center;
+}
+
 figcaption
 { 
     position: absolute; 
