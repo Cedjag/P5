@@ -94,11 +94,11 @@ class Controller {
                 }
               });
             } catch (Exception $e) {
-              $msg[] = '<li style="color: red;">An exception adding movie with '.$id.' ID</li>';
+              $msg[] = '<li id="exception">An exception adding movie with '.$id.' ID</li>';
             }
-            $msg[] = '<li style="color: green;">The movie '.$id.' ID added successfully.</li>';
+            $msg[] = '<li id="id_added">The movie '.$id.' ID added successfully.</li>';
           } else {
-            $msg[] = '<li style="color: red;">The movie with '.$id.' ID already exists.</li>';
+            $msg[] = '<li id="id_exists">The movie with '.$id.' ID already exists.</li>';
           }
         }
       }
@@ -115,7 +115,7 @@ class Controller {
       if (isset($_POST['update'])) {
         $video = $_POST['video'];
         $this->Movie->updateMovie([$video, $id]);
-        $msg[] = '<li style="color: green;">Movie '.$movie['id'].' ID updated successfully.</li>';
+        $msg[] = '<li id="movie_updated">Movie '.$movie['id'].' ID updated successfully.</li>';
       }
       require 'Views/admin/update.php';
     } else {
