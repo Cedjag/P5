@@ -87,7 +87,7 @@ class Critics extends Connection{
    //signaler une critique
 
    public function reportCritic() {
-     if (isset($_POST['report'])) {
+     if (isset($_POST['signal'])) {
        $value = $_POST['valeur'];
        $id = $_POST['idval'];
        $sql = 'UPDATE critics SET report = 1 WHERE id_movie =? AND id=?';

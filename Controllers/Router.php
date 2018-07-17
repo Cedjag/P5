@@ -62,6 +62,9 @@ class Router {
     elseif ($p === 'list') {
       $this->controller->list();
     }
+    elseif ($p === 'about_') {
+      $this->controller->info();
+    }
     
     require 'Views/footer.php';  
   }

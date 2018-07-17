@@ -2,7 +2,7 @@
 
 <main role="main" class="container">
 
-    <h1 id="contact_title">Formulaire de contact</h1><br>
+    <h1 id="contact_title">Formulaire de contact<i class="far fa-comment-dots"></i></h1><br>
     <p>Vos retours sont essentiels pour améliorer Le coin du cinéphile.
 N'hésitez pas à nous signaler des films libres de droits manquants, à remonter des bugs, des erreurs ou des liens morts. On vous répondra ! </p><hr>
     <form action="" method="post">

@@ -4,13 +4,14 @@ Autoload::register();
 
 class Controller {
 
-  public $Movie;
-  public $Cast;
-  public $MovieCast;
-  private $Comment;
-  private $Log_in;
-  private $Client;
-  private $Rating;
+  public $movie;
+  public $cast;
+  public $movieCast;
+  private $comment;
+  private $log_in;
+  private $client;
+  private $rating;
+  private $faq;
 
   public function __construct() {
     $token  = new \Tmdb\ApiToken(TMDB_API_KEY);
@@ -18,56 +19,62 @@ class Controller {
     $plugin = new \Tmdb\HttpClient\Plugin\LanguageFilterPlugin('fr');
     $client->getHttpClient()->addSubscriber($plugin);
 
-    $this->Movie = new Movies();
-    $this->Comment = new Critics();
-    $this->Cast = new Casts();
-    $this->MovieCast = new MoviesCasts();
-    $this->Log_in = new Login();
-    $this->Rating = new Rating();
-    $this->Client = $client;
+    $this->movie = new Movies();
+    $this->comment = new Critics();
+    $this->cast = new Casts();
+    $this->movieCast = new MoviesCasts();
+    $this->log_in = new Login();
+    $this->rating = new Rating();
+    $this->client = $client;
+    $this->faq = new About();
   }
 
   public function home() {
-    $movie = $this->Movie;
+    $movie = $this->movie;
     $view = require 'Views/home.php';
   }
 
   public function single() {
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
-      $movie = $this->Movie->getMovie($id);
-      $poster = $this->Movie->getPosterPath($movie['poster_path'], false, 300, 450);
-      $cast = $this->Cast;
-      $msg = $this->Comment->reportCritic();
-      $this->Comment->insertCritic();
-      $critics = $this->Comment->findAllWithChildren($_GET['id']);
-      $rating = $this->Rating->avg($movie['id']);
+      $movie = $this->movie->getMovie($id);
+      $poster = $this->movie->getPosterPath($movie['poster_path'], false, 300, 450);
+      $cast = $this->cast;
+      $msg = $this->comment->reportCritic();
+      $this->comment->insertCritic();
+      $critics = $this->comment->findAllWithChildren($_GET['id']);
+      $rating = $this->rating->avg($movie['id']);
       $view = require 'Views/single.php';
     } else {
       header('Location:index.php?p=404');
     }
   }
 
+  public function info() {
+    $info_ = $this->faq->getAbout();
+    $view = require 'Views/about_.php';
+  }
+
   public function login(){
-    $error = $this->Log_in->Log();
-    $this->Log_in->alreadyConnect();
+    $error = $this->log_in->Log();
+    $this->log_in->alreadyConnect();
     $view = require 'Views/admin/login.php';
   }
 
   public function dashboard(){
-    $this->Log_in->notLogin();
-    $movie = $this->Movie;
-    $comment = $this->Comment->findCritics();
-    $this->Comment->appCritic();
-    $msg = $this->Comment->noCritic();
-    $delete = $this->Comment->deleteCritic();
+    $this->log_in->notLogin();
+    $movie = $this->movie;
+    $comment = $this->comment->findCritics();
+    $this->comment->appCritic();
+    $msg = $this->comment->noCritic();
+    $delete = $this->comment->deleteCritic();
     require 'Views/admin/dashboard.php';
   }
 
   // Ajout films
   public function create() {
     $msg = array();
-    $this->Log_in->notLogin();
+    $this->log_in->notLogin();
 
     if (isset($_POST['create'])) {
       $ids = trim($_POST['ids']);
@@ -78,17 +85,17 @@ class Controller {
 
       if (sizeof($ids) > 0) {
         foreach ($ids as $key => $id) {
-          if (!$this->Movie->isMovieExists($id)) {
+          if (!$this->movie->isMovieExists($id)) {
             try {
-              $movie = $this->Client->getMoviesApi()->getMovie($id);
-              $credits = $this->Client->getMoviesApi()->getCredits($id);
+              $movie = $this->client->getMoviesApi()->getMovie($id);
+              $credits = $this->client->getMoviesApi()->getCredits($id);
               $movie['video'] = array_key_exists($key, $links) ? $links[$key] : null;
               
-              $this->Movie->addMovie($movie, function($movie_id) use($credits) {
+              $this->movie->addMovie($movie, function($movie_id) use($credits) {
                 foreach ($credits['cast'] as $cast) {
-                  if (!$this->Cast->isCastExists($cast['id'])) {
-                    $this->Cast->addCast($cast, function($cast_id) use($movie_id){
-                      $this->MovieCast->addMovieCast($movie_id, $cast_id);
+                  if (!$this->cast->isCastExists($cast['id'])) {
+                    $this->cast->addCast($cast, function($cast_id) use($movie_id){
+                      $this->movieCast->addMovieCast($movie_id, $cast_id);
                     });
                   }
                 }
@@ -111,10 +118,10 @@ class Controller {
     $msg = array();
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
-      $movie = $this->Movie->getMovie($id);
+      $movie = $this->movie->getMovie($id);
       if (isset($_POST['update'])) {
         $video = $_POST['video'];
-        $this->Movie->updateMovie([$video, $id]);
+        $this->movie->updateMovie([$video, $id]);
         $msg[] = '<li id="movie_updated">Movie '.$movie['id'].' ID updated successfully.</li>';
       }
       require 'Views/admin/update.php';
@@ -128,9 +135,9 @@ class Controller {
   public function delete() {
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
-      $movie = $this->Movie->getMovie($id);
-      $this->Movie->deleteMovie($id);
-      $this->MovieCast->deleteMovieCast($movie['movie_id']);
+      $movie = $this->movie->getMovie($id);
+      $this->movie->deleteMovie($id);
+      $this->movieCast->deleteMovieCast($movie['movie_id']);
       header('Location: index.php?p=dashboard');
     } else {
       header('Location: index.php?p=dashboard');
@@ -138,8 +145,10 @@ class Controller {
   }
 
   public function account() {
-    $this->Log_in->notLogin();
-    $msg = $this->Log_in->newPass();
+    $this->log_in->notLogin();
+    $msg = $this->log_in->newPass();
+    $info_ = $this->faq->getAbout();
+    $setinfo = $this->faq->setAbout();
     require 'Views/admin/account.php';
   }
 
@@ -148,7 +157,7 @@ class Controller {
     if (isset($_GET['id']) && isset($_GET['value'])) {
       $id = $_GET['id'];
       $value = $_GET['value'];
-      $this->Rating->rate($id, $value);
+      $this->rating->rate($id, $value);
     }
   }
 
@@ -183,7 +192,7 @@ class Controller {
   }
 
   public function list(){
-    $movie = $this->Movie;
+    $movie = $this->movie;
     $view = require 'Views/list.php';
   }
 }

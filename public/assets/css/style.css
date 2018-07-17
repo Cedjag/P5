@@ -1,13 +1,18 @@
 body
 {
-  background-color: rgb(219,219,219);
+  background-color: yellow;
   color: rgb(20,22,101);
+}
+
+hr
+{
+  background-color: red;
 }
 
 .card.mb-3
 {
-  background-color: rgb(219,219,219);
-  border-color: rgb(219,219,219);
+  background-color: yellow;
+  border-color: yellow;
 }
 
 /* Page d'accueil */
@@ -15,6 +20,17 @@ body
 .row.mt-5.mb-5
 {
   justify-content: space-around;
+}
+
+#charlot
+{
+  margin-left: 70px;
+}
+
+.row.justify-content-start
+{
+  width: 60%;
+  justify-content: center;
 }
 
 .sidebar.col-md-3, .col-md-7
@@ -30,7 +46,7 @@ body
 figcaption
 { 
     position: absolute; 
-    background: rgba(0, 206, 209, 0.9);
+    background: rgba(242,32,9, 0.9);
     color: white; 
     width: 100%;
     height: 25%;
@@ -52,8 +68,17 @@ figure:hover figcaption
 
 nav
 {
-  background-color: red;
+  background-color: rgb(242,32,9);
+}
+
+.navbar.navbar-expand-lg a
+{
   color: yellow;
+}
+
+#title
+{
+  color: white;
 }
 
 .row p
@@ -100,7 +125,7 @@ figcaption
 
 #twitter
 {
-  margin-left: 70px;
+  margin-left: 150px;
 }
 
 /* Page single */
@@ -109,6 +134,31 @@ figcaption
   padding-bottom: 56.25%; /* 16:9 */
   padding-top: 25px;
   height: 0;
+}
+
+#filmreel img
+{
+  margin-left: 550px;
+  margin-top: -40px;
+}
+
+#watchmovie img
+{
+  margin-left: 150px;
+}
+
+
+#date_genre span
+{
+  font-size: 1.3em;
+  color: rgb(179,89,0);
+  float: left;
+  width: 10em;
+}
+
+#date_genre p
+{
+  text-align: left;
 }
 
 .video-wrapper iframe {
@@ -158,15 +208,21 @@ figcaption
 
 h4
 {
-  color: rgb(179,89,0);
+  color: red;
 }
 
 h5
 {
-  color: rgb(179,89,0);
+  color: red;
 }
 
 /* Liste des films */
+
+#movie_list th
+{
+  background-color: rgb(242,32,9);
+  color: yellow;
+}
 
 .scroll
 {
@@ -202,11 +258,7 @@ th, td
 {
   padding: 5px 10px;
   border: 1px solid #999;
-}
-
-th 
-{
-  background-color: #eee;
+  background-color: rgb(243,250,126);
 }
 
 th[data-sort]
@@ -243,18 +295,38 @@ th, td
   text-align: center;
 }
 
+.far.fa-comment-dots
+{
+  font-size: 2.5em;
+  color: red;
+  margin-left: 100px;
+}
+
 /* Account.php */
+
+.account
+{
+  justify-content: center;
+  margin: auto;
+}
+
+#backbutton
+{
+  margin-bottom: 50px;
+  margin-top: -35px;
+}
 
 .row.row-account
 {
-  margin-top: 100px;
-  justify-content: center;
+  display: block;
+  margin: auto;
 }
 
 .row.row-account h1
 {
   margin-right: 50px;
   font-size: 1.3em;
+  justify-content: center;
 }
 
 /* Dashboard */
@@ -263,7 +335,29 @@ th, td
   margin-top: 50px;
 }
 
-/*Administration*/
+.dashboard h1
+{
+  display: flex;
+  justify-content: space-around;
+}
+
+.panel-title
+{
+  background-color: rgb(242,32,9);
+  justify-content: center;
+}
+
+#nav-item
+{
+  background-color: rgb(242,32,9);
+  border-radius: 5px;
+}
+
+.nav.nav-tabs a
+{
+  text-decoration: none;
+  color: white;
+}
 
 .admin 
 {
@@ -287,6 +381,11 @@ th, td
 .about 
 {
   margin-top: 25px;
+}
+
+.about .col-md-12
+{
+  display: flex;
 }
 
 .update
@@ -388,4 +487,42 @@ margin-top: 35px;
 #movie_updated
 {
   color: green;
+}
+
+/* About */
+.tagline.tagline-home
+{
+  margin-top: 50px;
+  font-size: 1.7em;
+}
+
+/* footer */
+
+.col-lg-12.footer
+{
+  display: flex;
+}
+
+/* Sur smartphones et tablettes format portrait */
+@media all and (max-width: 540px) 
+{   
+  #navig, #logoimg
+  {
+    max-width: 50px;
+  }
+
+  #navig
+  {
+    margin-left:0;
+  }
+
+  #logo a
+  {
+    font-size: 1em;
+  }
+
+  #charlot
+  {
+    display: none;
+  }
 }

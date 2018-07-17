@@ -1,7 +1,7 @@
    <div class="dashboard">
     <div class="container">
-      <h1><i class="fa fa-tachometer"></i> Tableau de bord.
-        <small>-</small> <a href="index.php?p=logout"><button type="button" class="btn btn-danger">Déconnexion</button></a>
+      <h1><i class="fa fa-tachometer"></i> Tableau de bord
+        <a href="index.php?p=logout"><button type="button" class="btn btn-danger">Déconnexion</button></a>
       </h1><hr>
       <div class="row">
         <div class="col-md-2">
@@ -10,8 +10,8 @@
         </div>
         <div class="col-md-10">
           <ul class="nav nav-tabs">
-            <li role="presentation" class="active showPost" id="navPost"><a href="#">Films</a></li>
-            <li role="presentation" class="showComments" id="navComments"><a href="#">Critiques</a></li>
+            <li role="presentation" class="active showPost" id="nav-item"><a class="nav-link" href="#">Films</a></li>
+            <li role="presentation" class="showComments" id="nav-item"><a a class="nav-link" href="#">Critiques</a></li>
           </ul>
           <div class="gestionPanel">
             <div class="row">
@@ -19,10 +19,11 @@
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <div class="panel-title">
-                      Gestion des films
+                      <p>Gestion des films</p>
                     </div>
                     </div>
                     <div class="panel panel-body">
+                    <div class="scroll">
                       <form method="post">
                           <table class="table">
                             <tr>
@@ -45,6 +46,7 @@
                       </form>
                       </div>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -67,7 +69,7 @@
                   <div class="panel panel-default">
                     <div class="panel panel-heading">
                       <div class="panel-title">
-                        Gestion des critiques signalées
+                        <p>Gestion des critiques signalées</p>
                       </div>
                     </div>
                     <div class="panel panel-body">
@@ -85,9 +87,9 @@
                               <td><?= $comm['content'] ?></td>
                               <td>
                                 <form method="post">
-                                  <button type="submit" name="trash" class="btn btn-danger" value="<?= $comm['id_movie'] ?>"><span class="glyphicon glyphicon-trash"></span></button>
+                                  <button type="submit" name="trash" class="btn btn-danger" value="<?= $comm['id_movie'] ?>"><i class="fas fa-times"></i></button>
                                   <input type="hidden" name="idDEL" value="<?= $comm['id'] ?>">
-                                  <button type="submit" name="ok" class="btn btn-primary" value="<?= $comm['id_movie'] ?>"><span class="glyphicon glyphicon-ok"></span></button>
+                                  <button type="submit" name="ok" class="btn btn-primary" value="<?= $comm['id_movie'] ?>"><i class="fas fa-check"></i></button>
                                   <input type="hidden" name="idOK" value="<?= $comm['id'] ?>">
                                 </form>
                               </td>

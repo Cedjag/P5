@@ -58,8 +58,7 @@ jQuery(document).ready(function($){
     var $bad = $('#badComments');
     var $gestion = $('.gestionPanel');
     var $lien = $('.showComments');
-    var $navPost = $('#navPost');
-    var $navComments = $('#navComments');
+    var $navPost = $('#navItem');
 
 
     $gestion.removeClass("noDisplay").addClass("display");

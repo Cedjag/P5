@@ -5,8 +5,8 @@
       <div class="col-md-4">
         <img src="<?php echo $poster; ?>" alt="<?php echo $movie['title']; ?>">
       </div>
-      <div class="col-md-8">
-        <h2><?php echo $movie['title'] ?></h2>
+      <div class="col-md-8" id="filmreel">
+        <h2><?php echo $movie['title'] ?><img title="Film reel" src="public/assets/img/filmreel.png" alt="film reel"></h2>
         <div class="rating mb-5">
           <?php 
             $j = 0;
@@ -24,12 +24,11 @@
         <h4>Synopsis</h4>
         <hr>
         <p class="lead"><?php echo $movie['overview']; ?></p>
-        <h5>Date de sortie</h5>
         <hr>
-        <p><?php echo $movie['release_date']; ?></p>
-        <h5>Genres</h5>
-        <hr>
-        <p><?php echo $movie['genres']; ?></p>
+        <div id="date_genre">
+          <p><span>Date de sortie : </span><?php echo $movie['release_date']; ?></p>
+          <p><span>Genre(s) : </span><?php echo $movie['genres']; ?></p>
+        </div>
       </div>
     </div>
     <h4 class="mb-3">Casting</h4>
@@ -47,7 +46,8 @@
         </div>
       <?php } ?>
     </div>
-    <h4 class="mb-3">Regarder le film en streaming</h4>
+    <h4 class="mb-3" id="watchmovie"><img title="camera" src="public/assets/img/camera.png" alt="old camera"></h4>
+    <hr>
     <div class="row mb-5">
       <div class="col-md-12">
         <div class="video-wrapper">
