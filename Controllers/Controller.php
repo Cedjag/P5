@@ -75,14 +75,11 @@ class Controller {
   public function create() {
     $msg = array();
     $this->log_in->notLogin();
-
     if (isset($_POST['create'])) {
       $ids = trim($_POST['ids']);
       $ids = explode(',', $ids);
-
       $links = trim($_POST['links']);
       $links = explode(',', $links);
-
       if (sizeof($ids) > 0) {
         foreach ($ids as $key => $id) {
           if (!$this->movie->isMovieExists($id)) {
@@ -101,11 +98,11 @@ class Controller {
                 }
               });
             } catch (Exception $e) {
-              $msg[] = '<li id="exception">An exception adding movie with '.$id.' ID</li>';
+              $msg[] = '<li style="color: red;">An exception adding movie with '.$id.' ID</li>';
             }
-            $msg[] = '<li id="id_added">The movie '.$id.' ID added successfully.</li>';
+            $msg[] = '<li style="color: green;">The movie '.$id.' ID added successfully.</li>';
           } else {
-            $msg[] = '<li id="id_exists">The movie with '.$id.' ID already exists.</li>';
+            $msg[] = '<li style="color: red;">The movie with '.$id.' ID already exists.</li>';
           }
         }
       }

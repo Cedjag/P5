@@ -13,7 +13,7 @@ class Login extends Connection{
     if (isset($_POST['submit'])) {
 
       $userid = htmlspecialchars(trim($_POST['identifiant']));
-      $password = htmlspecialchars(($_POST['password']));
+      $password = htmlspecialchars(sha1($_POST['password']));
       $errors = [];
 
       if (empty($userid) || empty($password)) {

@@ -37,14 +37,26 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.php?p=contact">Contact<span class="sr-only">(current)</span></a>
               </li>              
+              <li class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Liens</button>
+                  <div id="myDropdown" class="dropdown-content">
+                    <a href="https://www.ebooksgratuits.com/" target="_blank">Ebooks gratuits</a>
+                    <a href="www.inlibroveritas.net/" target="_blank">In Libro Veritas</a>
+                    <a href="https://archive.org/" target="_blank">Les archives du net</a>
+                    <a href="https://www.dogmazic.net/" target="_blank">Dogmazic</a>
+                    <a href="http://www.openculture.com/" target="_blank">Open Culture (en anglais)</a>
+                    <a href="https://www.rijksmuseum.nl/en/search?f=1&p=1&ps=12&imgonly=True&ii=0" target="_blank">Rijks Museum (Amsterdam)</a>
+                    <a href="https://www.metmuseum.org/art/collection" target="_blank">Metropolitan Museum (New-York)</a>
+                    <a href="http://search.getty.edu/gateway/landing" target="_blank">Getty (New-York)</a>
+                    <a href="https://www.moma.org/" target="_blank">MOMA (New-York)</a>
+                  </div>
+              </li> 
               <li id="twitter">
                 <a href="https://twitter.com/" target="_blank" ><img src="public/assets/img/twitter_small.png" alt="twitter"></a>
               </li> 
               <li id="fb">
                <a href="https://www.facebook.com/" target="_blank"><img src="public/assets/img/facebook_small.png" alt="facebook"></a></a>
               </li>
-
-
             </ul>
           </div>
         </div>

@@ -11,14 +11,14 @@
         <div class="col-md-10">
           <ul class="nav nav-tabs">
             <li role="presentation" class="active showPost" id="nav-item"><a class="nav-link" href="#">Films</a></li>
-            <li role="presentation" class="showComments" id="nav-item"><a a class="nav-link" href="#">Critiques</a></li>
+            <li role="presentation" class="showComments" id="nav-itemt"><a a class="nav-link" href="#">Critiques</a></li>
           </ul>
           <div class="gestionPanel">
             <div class="row">
               <div class="col-lg-12">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <div class="panel-title">
+                    <div class="panel-title" id="film_management">
                       <p>Gestion des films</p>
                     </div>
                     </div>
@@ -67,7 +67,7 @@
               <div class="row">
                 <div class="col-lg-12">
                   <div class="panel panel-default">
-                    <div class="panel panel-heading">
+                    <div class="panel panel-heading" id="reportcritic">                      
                       <div class="panel-title">
                         <p>Gestion des critiques signalées</p>
                       </div>

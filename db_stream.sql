@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 05 juil. 2018 à 14:53
+-- Généré le :  lun. 23 juil. 2018 à 11:34
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.19
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `stream`
+-- Base de données :  `db_stream`
 --
 
 -- --------------------------------------------------------
@@ -31,11 +31,11 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `about` longtext NOT NULL,
+  `username` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `about` longtext CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `admin`
@@ -55,11 +55,11 @@ CREATE TABLE IF NOT EXISTS `cast` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cast_id` int(11) NOT NULL,
   `order` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `character` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `profile_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `character` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `profile_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -70,15 +70,16 @@ CREATE TABLE IF NOT EXISTS `cast` (
 DROP TABLE IF EXISTS `critics`;
 CREATE TABLE IF NOT EXISTS `critics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `author` varchar(255) NOT NULL,
-  `content` text NOT NULL,
+  `author` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `content` text CHARACTER SET latin1 NOT NULL,
   `date` datetime NOT NULL,
   `id_movie` int(11) NOT NULL,
   `depth` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `report` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `Delete comments on cascade` (`id_movie`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `release_date` date NOT NULL,
   `popularity` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `movies_casts` (
   `movie_id` int(11) NOT NULL,
   `cast_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,17 @@ CREATE TABLE IF NOT EXISTS `movies_ratings` (
   `movie_id` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `critics`
+--
+ALTER TABLE `critics`
+  ADD CONSTRAINT `Delete comments on cascade` FOREIGN KEY (`id_movie`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

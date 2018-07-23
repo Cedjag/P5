@@ -45,12 +45,6 @@ class Movies extends Connection{
       return $this->query($sql, null, 'all');
     }
 
-  public function bestRatedMovies($offset = null) {
-    $sql = "SELECT AVG(`rating`) FROM movies_ratings WHERE movie_id={movie_id} ORDER BY AVG(`rating`) DESC";
-    if ($offset) $sql .= ' LIMIT '.$offset;
-      return $this->query($sql, null, 'all');
-    }
-
     //ajouter un film
 
   public function addMovie($movie, $callback) {

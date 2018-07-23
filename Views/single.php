@@ -21,6 +21,10 @@
             <i class="fas fa-star checked"></i>
           <?php } ?>
         </div>
+        <ul>
+          <li><a href="#watchvideo">Regarder le film</a></li>
+          <li><a href="#comments">Ecrire une critique</a></li>
+        </ul>
         <h4>Synopsis</h4>
         <hr>
         <p class="lead"><?php echo $movie['overview']; ?></p>
@@ -50,7 +54,7 @@
     <hr>
     <div class="row mb-5">
       <div class="col-md-12">
-        <div class="video-wrapper">
+        <div class="video-wrapper" id="watchvideo">
           <iframe src="<?php echo $movie['video']; ?>" frameborder="0" allowfullscreen></iframe>
         </div>
           <div id="share-buttons">
