@@ -34,6 +34,11 @@ class Controller {
     $view = require 'Views/home.php';
   }
 
+  public function page(){
+    $movie = $this->movie;
+    $view = require 'Views/page.php';
+
+  }
   public function single() {
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
@@ -186,10 +191,5 @@ class Controller {
 
   public function logout() {
     require 'Views/admin/logout.php';
-  }
-
-  public function list(){
-    $movie = $this->movie;
-    $view = require 'Views/list.php';
   }
 }

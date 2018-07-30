@@ -32,7 +32,7 @@
                 <a class="nav-link" id="admin" href="index.php?p=about_">Quésaco? <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.php?p=list">Tous les films<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php?p=page&num=1">Tous les films<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="index.php?p=contact">Contact<span class="sr-only">(current)</span></a>

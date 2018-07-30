@@ -59,8 +59,8 @@ class Router {
     elseif ($p === 'contact') {
       $this->controller->contact();
     }
-    elseif ($p === 'list') {
-      $this->controller->list();
+    elseif ($p === 'page') {
+      $this->controller->page();
     }
     elseif ($p === 'about_') {
       $this->controller->info();
