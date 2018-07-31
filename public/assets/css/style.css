@@ -232,26 +232,19 @@ h5
   color: yellow;
 }
 
-.scroll
-{
-  overflow:scroll;
-  height: 1000px;
-  margin-top: -15px;
-}
-
 .pagination 
 {
-    /*display: inline-block;*/
     margin-left: 400px;
+    margin-right: 200px;
     margin-top: 10px;
 }
 
 .pagination a 
 {
-    color: blue;
-    /*float: right;*/
+    color: red;
     padding: 8px 16px;
     text-decoration: none;
+justify-content: center;
 }
 
 .pagination a.active {

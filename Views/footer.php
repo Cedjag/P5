@@ -1,6 +1,6 @@
 <div class="page-footer font-small blue pt-4">
 	<div class="adminpanel">
-		<a href="http://cedricjager.com/stream/index.php?p=login">Espace d'administration</a>
+		<a href="index.php?p=login">Espace d'administration</a>
 	</div>
 </div>
 

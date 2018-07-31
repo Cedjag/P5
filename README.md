@@ -31,9 +31,29 @@ Par défaut un administrateur est créé avec comme login admin et comme mot de 
 			'db_name' => 'yourdb_name'
 </li>
             
-<li>Créer un répertoire Vendor\php-tmdb\api à la racine puis y copier le contenu Github suivant : https://github.com/php-tmdb/api
+<li>Installation API Themoviedb
+<ul>
+<li>Installation Composer :
+
+$ curl -sS https://getcomposer.org/installer | php
+$ sudo mv composer.phar /usr/local/bin/composer</li>
+
+<li>Ajouter la ligne suivante dans la partie require dans le fichier composer.json :
+
+"php-tmdb/api": "~2.1"
+
+Ce qui revient en fait à créer un fichier composer.json et à y insérer les lignes suivantes : 
+{
+    "require": {
+        "php-tmdb/api": "~2.1"
+    }
+}
+</li>
+
+<li>A présent, pour installer les fichiers de l'API, taper : composer install </li>
+
 Obtenir une clé pour l’API ThemovieDB sur le site suivant : https://developers.themoviedb.org/3/getting-started/introduction puis la copier dans le fichier apikey.php à la ligne 4 : 
-define('TMDB_API_KEY', 'your_api_key'); // Your API Key</li>
+define('TMDB_API_KEY', 'your_api_key'); // Your API Key </ul></li>
 
 <li>Utilisation du site : Pour ajouter des films dans la base de données, il faut récupérer l’ID du film sur le site http://www.themoviedb.org : il faut aller sur la page du film que vous souhaitez ajouter. Son ID est dans l’adresse URL (suite de chiffres en gras) : https://www.themoviedb.org/movie/<strong>363088</strong>-ant-man-and-the-wasp.</li>
 

@@ -20,7 +20,7 @@
     </thead>
     <tbody>
       
-    <?php foreach($movie->getMoviesPaginate(20) as $m) { ?>
+    <?php foreach($movie->getMoviesPaginate(40) as $m) { ?>
     
       <tr>
       <td id="a"><a href="?p=single&id=<?php echo $m['id']; ?>" class="card-link"><?php echo $m['title']; ?></a></td>
@@ -43,7 +43,7 @@
       $("#movie_list").stupidtable();
       }); 
     </script>
-    
+
 <!-- paginate -->
 	<div class="pagination">
       	<?php 

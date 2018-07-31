@@ -103,11 +103,11 @@ class Controller {
                 }
               });
             } catch (Exception $e) {
-              $msg[] = '<li style="color: red;">An exception adding movie with '.$id.' ID</li>';
+              $msg[] = '<li style="color: red;">Une erreur avec le film à l\'id '.$id.' s\'est produite</li>';
             }
-            $msg[] = '<li style="color: green;">The movie '.$id.' ID added successfully.</li>';
+            $msg[] = '<li style="color: green;">Le film avec l\'id '.$id.' a été ajouté.</li>';
           } else {
-            $msg[] = '<li style="color: red;">The movie with '.$id.' ID already exists.</li>';
+            $msg[] = '<li style="color: red;">Le film avec l\'id '.$id.' existe déjà.</li>';
           }
         }
       }
