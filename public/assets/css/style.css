@@ -157,9 +157,8 @@ figcaption
 
 #watchmovie img
 {
-  margin-left: 150px;
+  margin: auto;
 }
-
 
 #date_genre span
 {
@@ -400,12 +399,16 @@ th, td
   color: white;
 }
 
+.scroll
+{
+  overflow: scroll;
+  height: 2000px;
+}
+
 .admin 
 {
-  padding: 35px;
   height: 500px;
-  width: 450px;
-  margin: 150px auto;
+  width: 200px;
 }
 
 .dashboard, .account
@@ -646,5 +649,11 @@ th, td
   #charlot
   {
     display: none;
+  }
+
+  .pagination 
+  {
+    margin: auto;
+    margin-top: 10px;
   }
 }

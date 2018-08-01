@@ -6,7 +6,7 @@
         <img src="<?php echo $poster; ?>" alt="<?php echo $movie['title']; ?>">
       </div>
       <div class="col-md-8" id="filmreel">
-        <h2><?php echo $movie['title'] ?><img title="Film reel" src="public/assets/img/filmreel.png" alt="film reel"></h2>
+        <h2><?php echo $movie['title'] ?>s</h2>
         <div class="rating mb-5">
           <?php 
             $j = 0;
@@ -50,7 +50,7 @@
         </div>
       <?php } ?>
     </div>
-    <h4 class="mb-3" id="watchmovie"><img title="camera" src="public/assets/img/camera.png" alt="old camera"></h4>
+    <h4 class="mb-3" id="watchmovie"><img class="img-fluid" title="camera" src="public/assets/img/camera.png" alt="old camera"></h4>
     <hr>
     <div class="row mb-5">
       <div class="col-md-12">

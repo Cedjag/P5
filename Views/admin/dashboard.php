@@ -27,11 +27,11 @@
                       <form method="post">
                           <table class="table">
                             <tr>
-                              <th>Poster</th>
-                              <th>Titre</th>
-                              <th>Genres</th>
-                              <th>Modifier</th>
-                              <th>Supprimer</th>
+                              <th scope="col">Poster</th>
+                              <th scope="col">Titre</th>
+                              <th scope="col">Genres</th>
+                              <th scope="col">Modifier</th>
+                              <th scope="col">Supprimer</th>
                               </tr>
                               <?php foreach($movie->getMovies() as $m) { ?>
                               <tr class="table table-hover">

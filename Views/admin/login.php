@@ -1,6 +1,5 @@
   <div class="container" id="login_page">
     <div class="admin">
-
       <form method="post" class="form-group">
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user"></span></span>
