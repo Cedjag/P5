@@ -4,9 +4,9 @@ Autoload::register();
 
 class Controller {
 
-  public $movie;
-  public $cast;
-  public $movieCast;
+  private $movie;
+  private $cast;
+  private $movieCast;
   private $comment;
   private $log_in;
   private $client;
@@ -37,8 +37,8 @@ class Controller {
   public function page(){
     $movie = $this->movie;
     $view = require 'Views/page.php';
-
   }
+
   public function single() {
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
@@ -124,7 +124,7 @@ class Controller {
       if (isset($_POST['update'])) {
         $video = $_POST['video'];
         $this->movie->updateMovie([$video, $id]);
-        $msg[] = '<li id="movie_updated">Movie '.$movie['id'].' ID updated successfully.</li>';
+        $msg[] = '<li id="movie_updated">Le film avec l\'id '.$movie['id'].' a été mis à jour.</li>';
       }
       require 'Views/admin/update.php';
     } else {

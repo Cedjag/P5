@@ -21,7 +21,6 @@ class Router {
       $p = 'home';
     }
 
-    ob_start();
     if ($p === 'home') {
       $this->controller->home();
     }

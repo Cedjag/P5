@@ -34,7 +34,8 @@ class Connection {
       die();
     }
   }
-  function countRecords($query)
+  
+  public function countRecords($query)
   { 
     $req = self::getBdd()->prepare($query);
     try { 
@@ -42,7 +43,6 @@ class Connection {
     }
     catch(PDOException $e){echo $e->getMessage();}
 
-    return $req->rowCount();
-    
+    return $req->rowCount();    
   } 
 }

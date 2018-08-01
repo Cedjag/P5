@@ -1,6 +1,6 @@
 body
 {
-  background-color: yellow;
+  background-color: rgb(255,251,70);
   color: rgb(20,22,101);
 }
 
@@ -11,8 +11,8 @@ hr
 
 .card.mb-3
 {
-  background-color: yellow;
-  border-color: yellow;
+  background-color: rgb(255,251,70);
+  border-color: rgb(255,251,70);
 }
 
 /* Page d'accueil */

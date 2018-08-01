@@ -14,15 +14,13 @@
 	<script src="public/assets/js/list.js"></script>
 	<script src="public/assets/js/app.js"></script>
 	<script src="public/assets/js/dropdownmenu.js"></script>
-	<script src="public/assets/js/nicedit/nicEdit.js"></script>
-	<script type="text/javascript">
-	bkLib.onDomLoaded(function() {
-    nicEditors.editors.push(
-        new nicEditor().panelInstance(
-            document.getElementById('about')
-        )
-    );
-});
-	</script>
+	<script src="public/assets/js/ckeditor5-build-classic/ckeditor.js"></script>
+	<script>
+    ClassicEditor
+        .create(document.querySelector('#about'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 </body>
 </html>
