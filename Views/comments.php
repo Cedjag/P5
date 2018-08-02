@@ -11,9 +11,9 @@
   <div class="formulaire">
     <form class="form-group"  method="post">
       <p class="text-left">
-        <input type="hidden" name="value" value="<?= $critic['id_movie'] ?>">
+        <input type="hidden" name="valeur" value="<?= $critic['id_movie'] ?>">
         <input type="hidden" name="idval" value="<?= $critic['id'] ?>">
-        <button type="submit" name="report" class="btn btn-default"><i class="fas fa-bolt"></i></span></button>
+        <button type="submit" name="signal" class="btn btn-default"><i class="fas fa-bolt"></i></span></button>
       </p>
     </form>
   </div>
