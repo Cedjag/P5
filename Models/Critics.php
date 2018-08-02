@@ -19,24 +19,6 @@ class Critics extends Connection{
       return $critics_by_id;
   }
 
-
-  //Récupèrer les critiques qui ont des enfants.
-
-  public function findAllWithChildren($post_id, $unset_children = true) {
-
-    $comms = $critics_by_id = $this->findAllById($post_id);
-    foreach ($comms as $id => $comm) {
-        if ($comm['parent_id'] != 0) {
-            $critics_by_id[$comm->parent_id]->children[] = $comm;
-            if ($unset_children) {
-                unset($comms[$id]);
-            }
-        }
-    }
-    return $comms;
-  }
-
-
   //récupèrer une critique signalée.
 
   public function findCritics() {
@@ -56,32 +38,12 @@ class Critics extends Connection{
 
    //insérer une critique.
    public function insertCritic(){
-
-      if(isset($_POST['content']) && !empty($_POST['content'])){
-
-        $parent_id = isset($_POST['parent_id']) ? $_POST['parent_id'] : 0;
-        $depth = 0;
-
-        if ($parent_id != 0){
-
-          $sql = 'SELECT id, depth  FROM critics WHERE  id = ?';
-          $params = [$parent_id];
-          $comm = $this->query($sql,$params, 'one');
-          if ($comm == false) {
-            throw new Exception("Ce parent n'existe pas");
-          }
-          $depth = $comm->depth + 1;
-        }
-         if ($depth >= 3) {
-           echo "Impossible de rajouter une critique";
-         }
-         else {
-           $sql = 'INSERT INTO critics SET content = ?, author = ?, id_movie = ?, parent_id = ?, date = NOW(), depth = ?';
-           $params = array($_POST['content'], $_POST['nom'], $_GET['id'], $parent_id, $depth);
-           $req = $this->query($sql,$params);
-         }
-       }
-   }
+    if(isset($_POST['content']) && !empty($_POST['content'])){
+      $sql = 'INSERT INTO critics SET content = ?, author = ?, id_movie = ?, date = NOW()';
+      $params = array($_POST['content'], $_POST['nom'], $_GET['id']);
+      $req = $this->query($sql,$params);
+      }
+    }
 
 
    //signaler une critique
@@ -124,5 +86,4 @@ class Critics extends Connection{
       header('Location:index.php?p=dashboard');
      }
    }
-
 }

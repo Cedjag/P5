@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 26 juil. 2018 à 07:05
+-- Généré le :  jeu. 02 août 2018 à 15:39
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.19
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `about`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '');
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '<p>GVSDGXFB</p>');
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `cast` (
   `character` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `profile_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=803 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=817 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `cast`
@@ -868,7 +868,21 @@ INSERT INTO `cast` (`id`, `cast_id`, `order`, `name`, `character`, `profile_path
 (799, 1588173, 40, 'Daniel Eghan', 'Corporate Businessman (uncredited)', '/nTNg1qxJBc2JASmwdOIgVwM0zFB.jpg'),
 (800, 16578, 41, 'Julia Nickson', 'JN / Commuter (uncredited)', '/zQzqbbfixENqr2NLp92EOtL7POQ.jpg'),
 (801, 1823584, 42, 'Kiera Bell', 'IOI Staff (uncredited)', '/qdhc56MunR26QWb3fgb7RqxZN6X.jpg'),
-(802, 1785925, 43, 'Samantha Russell', 'Player (uncredited)', '/m3fVEv2gZ5cKkWqjE2uDqYEfruf.jpg');
+(802, 1785925, 43, 'Samantha Russell', 'Player (uncredited)', '/m3fVEv2gZ5cKkWqjE2uDqYEfruf.jpg'),
+(803, 578532, 0, 'GÃ¶sta Ekman', 'Faust', '/y3BmnaLLwRg6M0309YUUQJcfc2j.jpg'),
+(804, 2895, 1, 'Emil Jannings', 'Mephisto', '/r7kDnkaMUig9zeOqEndngx787HI.jpg'),
+(805, 48938, 2, 'Camilla Horn', 'Gretchen/ Marguerite', '/tC5mxJca5dsleZ5AVBFITmmZUEP.jpg'),
+(806, 48062, 3, 'Frida Richard', 'Gretchens Mutter/ Marguerite\'s mother', '/1T6Ua8DZTYSNdu0iH25RaGrAFFA.jpg'),
+(807, 49214, 4, 'William Dieterle', 'Valentin: Gretchens Bruder / Marguerite\'s brother', '/tZGQR1umCzJm3OM22zMJSFn8gCY.jpg'),
+(808, 46842, 5, 'Werner Fuetterer', 'Erzengel/ Archangel', '/7TefDrCUYmboEXwzoIo21E0Qjkn.jpg'),
+(809, 143354, 6, 'Yvette Guilbert', 'Marthe Schwerdtlein: Gretchens Tante / Marguerite\'s aunt', '/kCw5VIRUIJTXfAEOq5VlRyoxQhO.jpg'),
+(810, 590619, 7, 'Eric Barclay', 'Herzog von Parma / Duke of Parma', '/cL7jN8hpaL4ZIQvJFhjQyc9JdVd.jpg'),
+(811, 1093537, 8, 'Hanna Ralph', 'Herzogin von Parma / Duchess of Parma', '/uo23akAS38r1rACSC93kJfrF71b.jpg'),
+(812, 591493, 9, 'Hans Brausewetter', 'Bauernbursche/ Farmboy  (uncredited)', '/uIkoWaHqGG1vHPTqyG111630AWy.jpg'),
+(813, 29182, 10, 'Lothar MÃ¼thel', 'MÃ¶nch / Friar (uncredited)', '/qJCqahw0qEFMS31ozszQzXJwLoh.jpg'),
+(814, 46501, 11, 'Hertha von Walther', '(uncredited)', '/s4NlJy68zeuozKVh0VEd2lQPyOj.jpg'),
+(815, 14858, 12, 'Hans Rameau', '(uncredited)', NULL),
+(816, 48222, 13, 'Emmy Wyda', '(uncredited)', '/x4oLwQRptez803T4Aza9VDlpOEt.jpg');
 
 -- --------------------------------------------------------
 
@@ -883,12 +897,10 @@ CREATE TABLE IF NOT EXISTS `critics` (
   `content` text CHARACTER SET latin1 NOT NULL,
   `date` datetime NOT NULL,
   `id_movie` int(11) NOT NULL,
-  `depth` int(11) NOT NULL,
-  `parent_id` int(11) NOT NULL,
   `report` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `Delete comments on cascade` (`id_movie`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -908,7 +920,7 @@ CREATE TABLE IF NOT EXISTS `movies` (
   `release_date` date NOT NULL,
   `popularity` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `movies`
@@ -936,7 +948,8 @@ INSERT INTO `movies` (`id`, `movie_id`, `title`, `overview`, `video`, `genres`, 
 (19, 839, 'Duel', 'En Californie. David Mann est reprÃ©sentant de commerce. Il prend tranquillement la route, qui s\'annonce des plus longues et des plus monotones, pour son travail. Il suit un Ã©norme camion qui avance Ã  faible allure et dÃ©gage une fumÃ©e gÃªnante. Il finit par rÃ©ussir Ã  le doubler, mais le camion, capable de reprises Ã©tonnantes, dÃ©boÃ®te aussitÃ´t et le dÃ©passe Ã  son tour. David pense que le conducteur veut s\'amuser.', '', 'Action, Thriller, TÃ©lÃ©film, Drame', '/6H1yFAbgaecN1Z0jutYII3OmQYO.jpg', '1972-10-01', '8'),
 (20, 337676, 'Mektoub, My Love: Canto Uno', 'En France en 1994, Amin, parisien d\'adoption, retourne en Ã©tÃ© dans le Midi de la France oÃ¹ il a passÃ© sa jeunesse chez ses parents qui tiennent un restaurant tunisien Ã  SÃ¨te. Amin retrouve sa famille et ses amis de jeunesse, comme son cousin dragueur Tony ou sa meilleure amie OphÃ©lie ; il passe son temps entre le restaurant familial, les bars du coin et la plage oÃ¹ viennent bronzer de jolies vacanciÃ¨res. Alors que Tony a du succÃ¨s, Amin est plutÃ´t timide. Il se trouve une occupation en photographiant la cÃ´te mÃ©diterranÃ©enne dont il trouve la lumiÃ¨re fascinante.', '', 'Romance, Drame', '/ghIhby39Af4hkZUCvdWFq0F3nqB.jpg', '2018-03-15', '6'),
 (21, 299536, 'Avengers : Infinity War', 'Les Avengers et leurs alliÃ©s devront Ãªtre prÃªts Ã  tout sacrifier pour neutraliser le redoutable Thanos avant que son attaque Ã©clair ne conduise Ã  la destruction complÃ¨te de lâ€™univers.', '', 'Aventure, Science-Fiction, Fantastique, Action', '/uIMcxe36h9K3K1RFuhCtdo0UiY9.jpg', '2018-04-25', '142'),
-(22, 333339, 'Ready Player One', 'En 2045, Le monde est au bord du chaos. Les Ãªtres humains se rÃ©fugient dans l\'OASIS, univers virtuel mis au point par le brillant et excentrique James Halliday. Avant de disparaÃ®tre, celui-ci a dÃ©cidÃ© de lÃ©guer son immense fortune Ã  quiconque dÃ©couvrira l\'Å“uf de PÃ¢ques numÃ©rique qu\'il a pris soin de dissimuler dans l\'OASIS. L\'appÃ¢t du gain provoque une compÃ©tition planÃ©taire. Mais lorsqu\'un jeune garÃ§on, Wade Watts, qui n\'a pourtant pas le profil d\'un hÃ©ros, dÃ©cide de participer Ã  la chasse au trÃ©sor, il est plongÃ© dans un monde parallÃ¨le Ã  la fois mystÃ©rieux et inquiÃ©tantâ€¦', '', 'Aventure, Science-Fiction, Fantastique', '/832ngDVXhOVp6HBnuMMeeWTrGXN.jpg', '2018-03-28', '117');
+(22, 333339, 'Ready Player One', 'En 2045, Le monde est au bord du chaos. Les Ãªtres humains se rÃ©fugient dans l\'OASIS, univers virtuel mis au point par le brillant et excentrique James Halliday. Avant de disparaÃ®tre, celui-ci a dÃ©cidÃ© de lÃ©guer son immense fortune Ã  quiconque dÃ©couvrira l\'Å“uf de PÃ¢ques numÃ©rique qu\'il a pris soin de dissimuler dans l\'OASIS. L\'appÃ¢t du gain provoque une compÃ©tition planÃ©taire. Mais lorsqu\'un jeune garÃ§on, Wade Watts, qui n\'a pourtant pas le profil d\'un hÃ©ros, dÃ©cide de participer Ã  la chasse au trÃ©sor, il est plongÃ© dans un monde parallÃ¨le Ã  la fois mystÃ©rieux et inquiÃ©tantâ€¦', '', 'Aventure, Science-Fiction, Fantastique', '/832ngDVXhOVp6HBnuMMeeWTrGXN.jpg', '2018-03-28', '117'),
+(23, 10728, 'Faust, une lÃ©gende allemande', 'Tourmenteur de l\'humanitÃ© avec la guerre, la peste ou la famine, MÃ©phisto considÃ¨re que la terre lui appartient. L\'Archange Gabriel lui Ã©voque le nom de Faust, un vieux savant, un juste dont la vie entiÃ¨re est la preuve que la terre n\'est pas totalement soumise au Mal. MÃ©phisto promet de dÃ©tourner de Dieu l\'Ã¢me de Faust. Alors la terre sera tienne, promet l\'Archange... Dans son village dÃ©cimÃ© par la peste, Faust, dÃ©sespÃ©rÃ©, trouve un grimoire lui permettant d\'invoquer le Diable, et signe avec lui un pacte de 24 heures pour sauver les malades. Mais les villageois s\'en aperÃ§oivent et veulent le lapider. En proie au suicide, Faust accepte une nouvelle proposition de MÃ©phisto : retrouver sa jeunesse en Ã©change de son Ã¢meâ€¦', '', 'Drame, Fantastique, Horreur', '/eK1gP73fjPtZFpQMU6DgjUbA3tX.jpg', '1926-10-13', '7');
 
 -- --------------------------------------------------------
 
@@ -950,7 +963,7 @@ CREATE TABLE IF NOT EXISTS `movies_casts` (
   `movie_id` int(11) NOT NULL,
   `cast_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=803 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=817 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `movies_casts`
@@ -1758,7 +1771,21 @@ INSERT INTO `movies_casts` (`id`, `movie_id`, `cast_id`) VALUES
 (799, 333339, 1588173),
 (800, 333339, 16578),
 (801, 333339, 1823584),
-(802, 333339, 1785925);
+(802, 333339, 1785925),
+(803, 10728, 578532),
+(804, 10728, 2895),
+(805, 10728, 48938),
+(806, 10728, 48062),
+(807, 10728, 49214),
+(808, 10728, 46842),
+(809, 10728, 143354),
+(810, 10728, 590619),
+(811, 10728, 1093537),
+(812, 10728, 591493),
+(813, 10728, 29182),
+(814, 10728, 46501),
+(815, 10728, 14858),
+(816, 10728, 48222);
 
 -- --------------------------------------------------------
 

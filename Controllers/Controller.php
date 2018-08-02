@@ -47,7 +47,7 @@ class Controller {
       $cast = $this->cast;
       $msg = $this->comment->reportCritic();
       $this->comment->insertCritic();
-      $critics = $this->comment->findAllWithChildren($_GET['id']);
+      $critics = $this->comment->findAllById($_GET['id']);
       $rating = $this->rating->avg($movie['id']);
       $view = require 'Views/single.php';
     } else {
