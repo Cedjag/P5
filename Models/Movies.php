@@ -7,12 +7,12 @@ class Movies extends Connection{
  //Fonction qui retourne les films
 
   public function getMovies($offset = null) {
-    $sql = 'SELECT * FROM `movies` ORDER BY `id`';
+    $sql = 'SELECT * FROM `movies` ORDER BY `title`';
     if ($offset) $sql .= ' LIMIT '.$offset;
     return $this->query($sql, null, 'all');
   }
 
-  //function to get total movies
+ //fonctions pour la pagination
   public function total_movies($offset = null){
     $sql = 'SELECT * FROM `movies` ORDER BY `id`';
     $total = $this->countRecords($sql);
@@ -21,7 +21,6 @@ class Movies extends Connection{
     return $myceil;
   }
 
-  //fonction pour la pagination
   public function paginate(){
     if(isset($_GET['num'])){
       $num = $_GET['num'];
