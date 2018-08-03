@@ -188,6 +188,7 @@ figcaption
 }
 
 .rating {
+  /* Affichage de la note en étoiles de gauche à droite */
   unicode-bidi: bidi-override;
   direction: rtl;
   max-width: 115px;
@@ -197,10 +198,14 @@ figcaption
   cursor: pointer;
 }
 
-.rating > i.checked,
+.rating > i.checked
+{
+  color: green;
+}
+
 .rating > i:hover:before,
 .rating > i:hover ~ i:before {
-  color: orange;
+  color: red;
 }
 
 .formulaire .glyphicon-share-alt 
