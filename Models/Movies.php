@@ -80,7 +80,7 @@ class Movies extends Connection{
       $genres[] = $genre['name'];
     }
 
-    $genres = implode(", ", $genres);
+    $genres = implode(", ", $genres); // Rassemble les éléments du tableau en une chaîne
 
     $params = [$movie['id'], $movie['title'], $movie['overview'], $movie['video'], $genres, $movie['poster_path'], $movie['release_date'], $movie['popularity']];
     $this->query($sql, $params);

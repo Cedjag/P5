@@ -82,9 +82,9 @@
                         </tr>
                           <?php foreach ($comment as $comm) : ?>
                             <tr>
-                              <td><?= $comm['author'] ?></td>
+                              <td><?= htmlentities($comm['author']) ?></td>
                               <td><?= $comm['date'] ?></td>
-                              <td><?= $comm['content'] ?></td>
+                              <td><?= htmlentities($comm['content']) ?></td>
                               <td>
                                 <form method="post">
                                   <button type="submit" name="trash" class="btn btn-danger" value="<?= $comm['id_movie'] ?>"><i class="fas fa-times"></i></button>

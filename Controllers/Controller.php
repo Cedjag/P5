@@ -14,6 +14,7 @@ class Controller {
   private $faq;
 
   public function __construct() {
+    //Constructing the client
     $token  = new \Tmdb\ApiToken(TMDB_API_KEY);
     $client = new \Tmdb\Client($token, ['secure' => false]);
     $plugin = new \Tmdb\HttpClient\Plugin\LanguageFilterPlugin('fr');

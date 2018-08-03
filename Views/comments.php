@@ -1,6 +1,6 @@
 <div id="comment-<?= $critic['id'] ?>">
   <p>
-    <b><?= $critic['author'] ?></b>
+    <b><?= htmlentities($critic['author']) ?></b>
     <span class="text-muted">le <?= $critic['date'] ?></span>
   </p>
   <div class="blockquote">
