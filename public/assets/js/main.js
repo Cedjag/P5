@@ -9,7 +9,7 @@ $('.rating').on('click', 'i', function(){
       success: function (response) {               
         Cookies.set('rated_'+id, value);
         $(".rating").notify(
-          "Thank you for your rating.", 
+          "Merci d'avoir voté", 
           "success",
           { position: "right" }
         );
@@ -18,5 +18,10 @@ $('.rating').on('click', 'i', function(){
          console.log(textStatus, errorThrown);
       }
     });
+  } else {
+            $(".rating").notify(
+          "Vous avez déjà voté !", 
+          { position: "right" }
+        );
   }
 })
