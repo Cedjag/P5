@@ -12,11 +12,11 @@
       <?php } ?>
       <form method="post">
         <div class="form-group">
-          <label>Title</label>
+          <label>Titre</label>
           <input type="text" name="video" value="<?php echo $movie['title']; ?>" class="form-control" readonly>
         </div>
         <div class="form-group">
-          <label>Overview</label>
+          <label>Synopsis</label>
           <textarea class="form-control" name="overview" readonly><?php echo $movie['overview']; ?></textarea>
         </div>
         <div class="form-group">
@@ -28,7 +28,7 @@
           <input type="text" name="video" value="<?php echo $movie['video']; ?>" class="form-control" placeholder="Video Link">
         </div>
         <div class="form-group">
-          <label>Release Date</label>
+          <label>Date de sortie</label>
           <input type="date" name="release" value="<?php echo $movie['release_date']; ?>" class="form-control" placeholder="Video Link">
         </div>
         <div class="form-group">
