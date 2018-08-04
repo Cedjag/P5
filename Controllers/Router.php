@@ -12,8 +12,6 @@ class Router {
 
   public function RouterRequest() {
 
-    require 'Views/header.php';
-
     if (isset($_GET['p'])) {
       $p = $_GET['p'];
     }
@@ -63,8 +61,6 @@ class Router {
     }
     elseif ($p === 'about_') {
       $this->controller->info();
-    }
-    
-    require 'Views/footer.php';  
+    }  
   }
 }

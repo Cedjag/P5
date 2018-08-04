@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <div class="container">
 
 <main role="main" class="container">
@@ -22,3 +23,5 @@ N'hésitez pas à nous signaler des films libres de droits manquants, à remonte
     </form>
 
 </main>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'admin/gabarit.php'; ?>

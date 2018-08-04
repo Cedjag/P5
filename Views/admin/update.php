@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <div class="update mt-5 mb-5">
   <div class="container">
     <h2>Modifier <?php echo $movie['title']; ?></h2>
@@ -39,3 +40,5 @@
     </div>
   </div>
 </div>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'gabarit.php'; ?>

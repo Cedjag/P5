@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <div class="account">
   <div class="container">
     <div class="row row-account"><a href="index.php?p=dashboard" class="btn btn-primary" id="backbutton">Retour</a>
@@ -46,3 +47,5 @@
 
   </div>
 </div>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'gabarit.php'; ?>

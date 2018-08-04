@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <div class="single mb-5 mt-5">
   <div class="container">
     <!-- paginate -->
@@ -56,4 +57,5 @@
 
       </div>
 </div>
-
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'admin/gabarit.php'; ?>

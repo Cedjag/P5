@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
     <div class="container">
         <div class="about">
             <div class="row">
@@ -11,3 +12,5 @@
             </div>
         </div>
     </div>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'admin/gabarit.php'; ?>

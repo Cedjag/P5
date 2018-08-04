@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <div class="add mt-5 mb-5">
   <div class="container">
     <h1>Ajouter un film</h1>
@@ -25,3 +26,5 @@
     </div>
   </div>
 </div>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'gabarit.php'; ?>

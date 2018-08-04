@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
    <div class="dashboard">
     <div class="container">
       <h1><i class="fa fa-tachometer"></i> Tableau de bord
@@ -107,3 +108,5 @@
       </div>
     </div>
   </div>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'gabarit.php'; ?>

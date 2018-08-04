@@ -1,3 +1,4 @@
+  <?php ob_start(); ?>  
   <div class="container" id="login_page">
     <div class="admin">
       <form method="post" class="form-group">
@@ -14,3 +15,5 @@
       <p><?php echo $error ?></p>
     </div>
   </div>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'gabarit.php'; ?>

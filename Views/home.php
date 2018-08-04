@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <div class="container">
   <div class="row mt-5 mb-5">
     <div class="row justify-content-start">
@@ -64,3 +65,5 @@
     </div>
   </div>
 </div>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'admin/gabarit.php'; ?>
