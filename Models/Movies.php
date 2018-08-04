@@ -8,7 +8,6 @@ class Movies extends Connection{
 
   public function getMovies($offset = null) {
     $sql = 'SELECT * FROM `movies` ORDER BY `id` DESC';
-    if ($offset) $sql .= ' LIMIT '.$offset;
     return $this->query($sql, null, 'all');
   }
 

@@ -19,7 +19,7 @@ $('.rating').on('click', 'i', function(){
       }
     });
   } else {
-            $(".rating").notify(
+          $(".rating").notify(
           "Vous avez déjà voté !", 
           { position: "right" }
         );
