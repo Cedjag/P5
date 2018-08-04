@@ -7,7 +7,6 @@ class About extends Connection{
 
   public function getAbout($offset = null) {
     $sql = 'SELECT about FROM admin';
-    if ($offset) $sql .= ' LIMIT '.$offset;
     return $this->query($sql, null, 'one');
   }
 
