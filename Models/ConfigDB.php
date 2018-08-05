@@ -5,10 +5,10 @@ class ConfigDB {
 	public static function database() {
 
 	$key = [
-	'username' => 'root',
+	'username' => '',
 	'password' => '',
-	'host' => 'localhost',
-	'db_name' => 'new_stream'
+	'host' => '',
+	'db_name' => ''
 	];
 
 	return $key;
