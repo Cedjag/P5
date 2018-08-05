@@ -5,10 +5,10 @@ class ConfigDB {
 	public static function database() {
 
 	$key = [
-	'username' => '',
+	'username' => 'root',
 	'password' => '',
-	'host' => '',
-	'db_name' => ''
+	'host' => 'localhost',
+	'db_name' => 'freemovies'
 	];
 
 	return $key;
