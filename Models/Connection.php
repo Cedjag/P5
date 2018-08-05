@@ -6,7 +6,7 @@ class Connection {
   private function getBdd() {
     try {
       $bdd = ConfigDB::database();
-      $pdo = new PDO("mysql:host={$bdd['host']}; dbname={$bdd['db_name']}", "{$bdd['username']}", "{$bdd['password']}");
+      $pdo = new PDO("mysql:charset=utf8mb4; mysql:host={$bdd['host']}; dbname={$bdd['db_name']}", "{$bdd['username']}", "{$bdd['password']}");
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       print "Error!: " . $e->getMessage() . "<br/>";

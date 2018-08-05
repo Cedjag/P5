@@ -104,11 +104,11 @@ class Controller {
                 }
               });
             } catch (Exception $e) {
-              $msg[] = '<li style="color: red;">Une erreur avec le film à l\'id '.$id.' s\'est produite</li>';
+              $msg[] = 'Une erreur avec le film à l\'id '.$id.' s\'est produite';
             }
-            $msg[] = '<li style="color: green;">Le film avec l\'id '.$id.' a été ajouté.</li>';
+            $msg[] = 'Le film avec l\'id '.$id.' a été ajouté.';
           } else {
-            $msg[] = '<li style="color: red;">Le film avec l\'id '.$id.' existe déjà.</li>';
+            $msg[] = 'Le film avec l\'id '.$id.' existe déjà.';
           }
         }
       }
@@ -125,7 +125,7 @@ class Controller {
       if (isset($_POST['update'])) {
         $video = $_POST['video'];
         $this->movie->updateMovie([$video, $id]);
-        $msg[] = '<li id="movie_updated">Le film avec l\'id '.$movie['id'].' a été mis à jour.</li>';
+        $msg[] = 'Le film avec l\'id '.$movie['id'].' a été mis à jour.';
       }
       require 'Views/admin/update.php';
     } else {

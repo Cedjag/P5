@@ -1,4 +1,3 @@
-<?php ob_start(); ?>
 <div id="comment-<?= $critic['id'] ?>">
   <p>
     <b><?= htmlentities($critic['author']) ?></b>
@@ -19,5 +18,3 @@
     </form>
   </div>
 </div>
-<?php $contenu = ob_get_clean(); ?>
-<?php require 'admin/gabarit.php'; ?>

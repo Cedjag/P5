@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="public/assets/css/fontawesome.css">
     <link rel="stylesheet" href="public/assets/css/style.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="public/assets/css/jquery.cookiebar.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_style.min.css' rel='stylesheet' type='text/css' />
     <link rel="icon" href="public/assets/img/favicon.ico" />
 
@@ -68,6 +69,7 @@
                 <?= $contenu ?>
             </div> <!-- #contenu -->
 <div class="page-footer font-small blue pt-4">
+  <p id="legal">© 2018 Cédric JAGER - Le coin du cinéphile - Projet personnel - formation Développeur web junior - OpenClassRooms</p>
 	<div class="adminpanel">
 		<a href="index.php?p=login">Espace d'administration</a>
 	</div>
@@ -83,6 +85,10 @@
 	<script src="public/assets/js/list.js"></script>
 	<script src="public/assets/js/app.js"></script>
 	<script src="public/assets/js/dropdownmenu.js"></script>
+  <script src="public/assets/js/jquery.cookiebar.js"></script>
+  <script type="text/javascript">$( document ).ready(function() {
+    $.cookieBar();
+});</script>
 	<script src="public/assets/js/ckeditor5-build-classic/ckeditor.js"></script>
 	<script>
     ClassicEditor

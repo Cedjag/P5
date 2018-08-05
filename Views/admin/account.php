@@ -20,6 +20,7 @@
                 <button type="submit" name="new" class="btn btn-primary">Valider</button>
               </div>
             </form>
+            
             <?= $msg ?>
           </div>
         </div>

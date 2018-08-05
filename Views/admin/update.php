@@ -7,7 +7,9 @@
       <?php if (sizeof($msg) > 0) { ?>
         <div class="alert alert-info">
           <ul style="list-style: none; margin: 0; padding: 0;">
-            <?php foreach ($msg as $m) { echo $m; } ?>
+            <?php foreach($msg as $m): ?>
+              <li class="movie_updated"><?php echo $m; ?></li>
+            <?php endforeach; ?>
           </ul>
         </div>
       <?php } ?>

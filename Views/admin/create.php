@@ -4,10 +4,12 @@
     <h1>Ajouter un film</h1>
     <hr>
     <div class="mt-5">
+      
       <?php if (sizeof($msg) > 0) { ?>
         <div class="alert alert-info">
           <ul style="list-style: none; margin: 0; padding: 0;">
-            <?php foreach ($msg as $m) { echo $m; } ?>
+            <?php foreach ($msg as $m) ?>
+            <li><?php echo $m; ?></li>
           </ul>
         </div>
       <?php } ?>

@@ -555,6 +555,12 @@ th, td
   display: flex;
 }
 
+#legal
+{
+  font-size: 0.8em;
+  color: white;
+}
+
 .page-footer.font-small.blue.pt-4
 {
   display: flex;
